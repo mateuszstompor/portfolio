@@ -140,19 +140,48 @@ img {
 .nav__link {
   position: relative;
   color: #fff;
+  display: inline-block; /* Ensure transform works properly */
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
+
 .nav__link:hover {
-  position: relative;
+  color: var(--first-color); /* Color transition on hover */
+  transform: translateY(-2px); /* Slight upward movement */
 }
-.nav__link:hover::after {
+
+/* Animation for the underline */
+.nav__link::after {
   position: absolute;
   content: "";
-  width: 100%;
+  width: 0%;
   height: 0.18rem;
   left: 0;
   top: 2rem;
   background-color: var(--first-color);
+  transition: width 0.5s ease-in;
 }
+
+.nav__link:hover::after {
+  width: 100%;
+}
+
+/* Keyframe for additional text animations */
+@keyframes text-fade-in {
+  0% {
+    opacity: 0;
+    /* transform: translateY(1px); */
+  }
+  100% {
+    opacity: 1;
+    /* transform: translateY(0); */
+  }
+}
+
+/* Apply the keyframe animation to the text on hover */
+.nav__link {
+  animation: text-fade-in 0.5s ease-in-out;
+}
+
 .nav__logo {
   color: var(--second-color);
 }
