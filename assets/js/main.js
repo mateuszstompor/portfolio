@@ -45,8 +45,8 @@ window.addEventListener('scroll', scrollActive)
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({
     origin: 'top',
-    distance: '60px',
-    duration: 2000,
+    distance: '80px',
+    duration: 1500,
     delay: 200
 });
 
@@ -58,7 +58,7 @@ function sendMail() {
     window.location.href = mailtoLink;
 }
 
-sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text, .experience__subtitle, .experience__text',{}); 
+sr.reveal('.home__data, .about__img, .skills__subtitle, .work__subtitle, .work__text, .work__img_subtitle, .skills__text, .experience__subtitle, .experience__text',{}); 
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input, .button__download',{interval: 200}); 

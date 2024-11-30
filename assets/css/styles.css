@@ -319,6 +319,15 @@ img {
   margin-bottom: var(--mb-4);
 }
 
+.work_more__container {
+  text-align: center;
+  justify-content: center;
+  column-gap: 1rem; 
+  column-gap: 2rem;
+  align-items: center;
+  text-align: initial;
+}
+
 /* ===== SKILLS =====*/
 .skills__container {
   row-gap: 2rem;
@@ -327,9 +336,20 @@ img {
 .skills__subtitle {
   margin-bottom: var(--mb-2);
 }
+
 .skills__text {
   margin-bottom: var(--mb-4);
 }
+
+.work__subtitle {
+  margin-bottom: var(--mb-2);
+  text-align: center;
+}
+
+.work__text {
+  margin-bottom: var(--mb-4);
+}
+
 .skills__data {
   display: flex;
   justify-content: space-between;
@@ -380,9 +400,15 @@ img {
 .work__container {
   row-gap: 2rem;
 }
+
+.work__img_subtitle {
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
 .work__img {
   box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
-  border-radius: 0.5rem;
+  border-radius: 2rem;
   overflow: hidden;
 }
 .work__img img {
