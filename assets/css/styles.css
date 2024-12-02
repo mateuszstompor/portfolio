@@ -333,7 +333,14 @@ img {
 }
 
 .work__subtitle {
-  margin-bottom: var(--mb-2);
+  margin-top: var(--mb-4);
+  margin-bottom: var(--mb-4);
+  text-align: center;
+}
+
+.cv__subtitle {
+  margin-top: 4rem;
+  margin-bottom: var(--mb-4);
   text-align: center;
 }
 
