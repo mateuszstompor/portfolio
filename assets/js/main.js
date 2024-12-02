@@ -51,10 +51,9 @@ const sr = ScrollReveal({
 });
 
 function sendMail() {
-    var name = document.getElementById('name').value;
     var message = document.getElementById('message').value;
 
-    var mailtoLink = `mailto:contact@arctic.codes?subject=Message from ${name}&body=${message}`;
+    var mailtoLink = `mailto:contact@arctic.codes?subject=Contact inquiry&body=${message}`;
     window.location.href = mailtoLink;
 }
 
