@@ -57,7 +57,7 @@ function sendMail() {
     window.location.href = mailtoLink;
 }
 
-sr.reveal('.home__data, .about__img, .skills__subtitle, .work__subtitle, .work__text, .work__img_subtitle, .skills__text, .experience__subtitle, .experience__text',{}); 
+sr.reveal('.home__data, .about__img, .skills__subtitle, .work__subtitle, .cv__subtitle, .work__text, .work__img_subtitle, .skills__text, .experience__subtitle, .experience__text',{}); 
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input, .visually-hidden, .button__download',{interval: 200}); 
