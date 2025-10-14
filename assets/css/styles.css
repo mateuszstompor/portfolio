@@ -399,21 +399,27 @@ img {
 .link-inherit {
     color: inherit;
     text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.link-inherit:hover {
-    color: #007aff; /* or any accent color */
 }
 
 /* ===== WORK =====*/
+.work__item:hover .work__img img,
+.work__item:hover .work__img_subtitle {
+  transform: scale(1.05);
+  transition: transform 0.5s;
+  color: #007aff;
+}
+
 .work__container {
   row-gap: 2rem;
 }
 
 .work__img_subtitle {
+  display: flex;
+  justify-content: center;  /* centers horizontally */
+  align-items: center;       /* centers vertically */
+  gap: 4px;
   padding-top: 1.5rem;
-  text-align: center;
+  text-align: center; /* optional, for multi-line text */
 }
 
 .work__img {
