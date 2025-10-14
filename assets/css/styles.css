@@ -418,6 +418,10 @@ img {
     text-decoration: none;
 }
 
+.link-inherit:hover {
+    color: #007aff;
+}
+
 /* ===== WORK =====*/
 .work__item:hover .work__img img,
 .work__item:hover .work__img_subtitle {
