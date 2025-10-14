@@ -396,6 +396,16 @@ img {
   margin-bottom: 5rem;
 }
 
+.link-inherit {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-inherit:hover {
+    color: #007aff; /* or any accent color */
+}
+
 /* ===== WORK =====*/
 .work__container {
   row-gap: 2rem;
