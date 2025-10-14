@@ -348,6 +348,18 @@ img {
 
 .work__text {
   margin-bottom: var(--mb-4);
+.cursor {
+  display: inline-block;
+  width: 0.3em;
+  height: 0.8em;
+  background-color: currentColor;
+  margin-left: 0.3em;
+  animation: blink 1.0s step-end infinite alternate;
+  vertical-align: center;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 .skills__data {
