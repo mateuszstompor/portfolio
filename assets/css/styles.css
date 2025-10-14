@@ -16,6 +16,8 @@
   --h2-font-size: 1.25rem;
   --normal-font-size: .938rem;
   --smaller-font-size: .75rem;
+  --nav-blur-bg: rgba(255,255,255,0.7);
+  --nav-blur: 8px;
   /*===== Margenes =====*/
   --mb-2: 1rem;
   --mb-4: 2rem;
