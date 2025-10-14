@@ -256,7 +256,7 @@ img {
   width: 360px;
 }
 
-.button {
+.button, .button__download {
   display: inline-block;
   background: linear-gradient(90deg, var(--first-color) 0%, #ffb86c 100%);
   background-size: 200% 100%;
@@ -270,12 +270,13 @@ img {
   font-size: var(--normal-font-size);
   cursor: pointer;
   margin-left: auto;
+  margin-right: auto;
   transition:
   transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
   background-position 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.button:hover {
+.button:hover, .button__download:hover {
   transform: translateY(-1px) scale(1.02);
   background-position: 100% 50%; /* makes gradient move smoothly */
 }
@@ -493,6 +494,9 @@ img {
     flex-direction: row;
     align-self: flex-end;
   }
+  .button__download {
+    margin-right: auto;
+  }
   .home__social-icon {
     margin-bottom: 0;
     margin-right: var(--mb-4);
@@ -587,6 +591,9 @@ img {
     column-gap: 2rem;
     align-items: center;
     text-align: initial;
+  }
+  .button__download {
+    margin-right: 0;
   }
   .bd-grid {
     margin-left: auto;
