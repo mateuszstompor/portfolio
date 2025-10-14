@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="assets/css/styles.css">
 
         <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
 
         <title>Mateusz Stompór | Arctic Codes</title>
 
@@ -44,7 +44,7 @@
                         <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                         <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
                         <li class="nav__item"><a href="#work" class="nav__link">Experience</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                        <!-- <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li> -->
                     </ul>
                 </div>
 
@@ -58,9 +58,8 @@
             <!--===== HOME =====-->
             <section class="home bd-grid" id="home">
                 <div class="home__data">
-                    <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Mateusz</span><br>Programmer</h1>
-
-                    <a href="#contact" class="button">Contact</a>
+                    <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Mateusz</span>,<br>A programmer<span class="cursor"></span></h1>
+                    <!-- <a href="#contact" class="button">Contact</a> -->
                 </div>
 
                 <div class="home__social">
@@ -68,7 +67,7 @@
                     <a href="https://github.com/mateuszstompor" aria-label="Link to GitHub Account" class="home__social-icon"><i class='bx bxl-github'></i></a>
                 </div>
 
-                <div class="home__img">
+                <!-- <div class="home__img">
                     <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
                         <style type="text/css">
                             .st0 {
@@ -89,7 +88,7 @@
                                 c19.732,2.822,52.159-5.636,76.127,2.814C505.298,248.302,514.304,232.237,511.482,222.379z"/>
                         </g>
                     </svg>
-                </div>
+                </div> -->
             </section>
 
             <!--===== ABOUT =====-->
@@ -102,7 +101,7 @@
                     </div>
                     
                     <div>
-                        <h2 class="about__subtitle">I'm Mateusz</h2>
+                        <h2 class="about__subtitle">Who am I?</h2>
                         <p class="about__text">
                             A dedicated programmer with a focus on developing plugins for Final Cut Pro. With a strong background in C++, Objective-C, and Apple’s Metal framework, I specialize in creating efficient, high-performance tools for video editing workflows. My development approach often involves Manual Reference Counting (MRC) to optimize memory management, and I’m passionate about solving complex problems that push the boundaries of creativity in media production. Outside of coding, I enjoy the world of stand-up comedy, which keeps me grounded and inspired.
                         </p>           
@@ -134,8 +133,14 @@
                         </p>
                     </div>
                     
+                    <div>
+                        <div>              
+                        <img src="assets/img/work1.jpg" alt="" class="skills__img2">                        
+                    </div>
+
                     <div>              
-                        <img src="assets/img/work1.jpg" alt="" class="skills__img">                        
+                        <img src="assets/img/work9.jpg" alt="" class="skills__img">                        
+                    </div>
                     </div>
                 </div>
             </section>
@@ -151,21 +156,23 @@
                                 <img src="assets/img/work6.jpg" alt="Engine">
                             </a>
                         </div>
-                        <a href="https://github.com/P0rc3lain/Engine">
+                        <a href="https://github.com/P0rc3lain/Engine" class="link-inherit">
                             <p class="work__img_subtitle">
                                 P0rc3lain Engine
+                                <i class='bx bx-link'></i>
                             </p>
                         </a>
                     </div>
-                    <div>
+                    <div class="work__item">
                         <div class="work__img">
                             <a href="https://github.com/mateuszstompor/FlappyBird" aria-label="Link to a clone of Flappy Bird">
                                 <img src="assets/img/work2.jpg" alt="Image preview of FlappyBird clone app">
                             </a>
                         </div>
-                        <a href="https://github.com/mateuszstompor/FlappyBird" aria-label="Link to a clone of Flappy Bird">
+                        <a href="https://github.com/mateuszstompor/FlappyBird" class="link-inherit" aria-label="Link to a clone of Flappy Bird">
                             <p class="work__img_subtitle">
                                 Flappy Bird Clone
+                                <i class='bx bx-link'></i>
                             </p>
                         </a>
                     </div>
@@ -175,9 +182,10 @@
                                 <img src="assets/img/work3.jpg" alt="">
                             </a>
                         </div>
-                        <a href="https://github.com/P0rc3lain/Chess" aria-label="Chess game built on top of P0rc3lain Engine">
+                        <a href="https://github.com/P0rc3lain/Chess" class="link-inherit" aria-label="Chess game built on top of P0rc3lain Engine">
                             <p class="work__img_subtitle">
                                 A Chess game
+                                <i class='bx bx-link'></i>
                             </p>
                         </a>
                     </div>
@@ -187,9 +195,10 @@
                                 <img src="assets/img/work5.jpg" alt="">
                             </a>
                         </div>
-                        <a href="https://github.com/mateuszstompor/mine" aria-label="Path tracing engine">
+                        <a href="https://github.com/mateuszstompor/mine" class="link-inherit" aria-label="Path tracing engine">
                             <p class="work__img_subtitle">
                                 CPU-based path tracer
+                                <i class='bx bx-link'></i>
                             </p>
                         </a>
                     </div>
@@ -199,9 +208,10 @@
                                 <img src="assets/img/work8.jpg" alt="">
                             </a>
                         </div>
-                        <a href="https://github.com/mateuszstompor/ngin" aria-label="OpenGL-based Graphics Engine">
+                        <a href="https://github.com/mateuszstompor/ngin" class="link-inherit" aria-label="OpenGL-based Graphics Engine">
                             <p class="work__img_subtitle">
                                 Graphics engine, #2 Attempt
+                                <i class='bx bx-link'></i>
                             </p>
                         </a>
                     </div>
@@ -211,9 +221,10 @@
                                 <img src="assets/img/work7.jpg" alt="">
                             </a>
                         </div>
-                        <a href="https://github.com/mateuszstompor/MSEngine" aria-label="Objective-C Graphics engine">
+                        <a href="https://github.com/mateuszstompor/MSEngine" class="link-inherit" aria-label="Objective-C Graphics engine">
                             <p class="work__img_subtitle">
                                 Graphics engine, #1 Attempt
+                                <i class='bx bx-link'></i>
                             </p>
                         </a>
                     </div>
@@ -227,9 +238,11 @@
                     <!-- 1 -->
                     <div>
                         <a href="https://github.com/mateuszstompor/AsyncTCP" 
+                           class="link-inherit"
                            aria-label="Link to an asynchronous socket library">
                             <p class="work__text">
                                 AsyncTCP
+                                <i class='bx bx-link'></i>
                             </p>
                         </a>
                         <p class="work__text">
@@ -241,9 +254,11 @@
                     <!-- 2 -->
                     <div>
                         <a href="https://github.com/mateuszstompor/Linked-List-x86-64-ASM" 
+                           class="link-inherit"
                            aria-label="Link to an implementation of linked list written in assembly">
                             <p class="work__text">
                                 Linked-List x86 ASM
+                                <i class='bx bx-link'></i>
                             </p>
                         </a>
                         <p class="work__text">
@@ -254,9 +269,11 @@
                     <!-- 3 -->
                     <div>
                         <a href="https://github.com/mateuszstompor/rhce-ex294-exam"
+                           class="link-inherit"
                            aria-label="Link to materials that prepare for EX294 Red Hat exam">
                             <p class="work__text">
                                 RHCE preparations
+                                <i class='bx bx-link'></i>
                             </p>
                         </a>
                         <p class="work__text">
@@ -268,24 +285,24 @@
                     </div>
                 </div>
             </div>
-            <h2 class="cv__subtitle">Curriculum vitae</h2>
+            <h2 class="cv__subtitle">Professional experience</h2>
             <div class="experience__container bd-grid">          
                 <p class="experience__text">
                     If you consider cooperation you may have a look at my CV, where I have gathered all the information about my education, experience, and most challenging projects.
                 </p>
-                <a target="_blank" href="assets/Mateusz Stompor - CV.pdf" aria-label="Link to Curriculum Vitae" class="button__download">Open in a new tab</a>
+                <a target="_blank" href="assets/Mateusz Stompor - CV.pdf" aria-label="Link to Curriculum Vitae" class="button">Open in a new tab</a>
             </div>
             <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
+            <!-- <section class="contact section" id="contact">
                 <h2 class="section-title">Contact</h2>
                 <div class="contact__container bd-grid">
                     <form action="" class="contact__form">
                         <label for="message" class="visually-hidden">Your Message</label>
                         <textarea name="" placeholder="I'd like to ask you about..." id="message" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Send" class="contact__button button" onclick="sendMail()">
+                        <input type="button" value="Send" class="button" onclick="sendMail()">
                     </form>
                 </div>
-            </section>
+            </section> -->
         </main>
 
         <!--===== FOOTER =====-->

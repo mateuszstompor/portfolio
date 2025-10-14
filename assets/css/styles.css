@@ -16,6 +16,8 @@
   --h2-font-size: 1.25rem;
   --normal-font-size: .938rem;
   --smaller-font-size: .75rem;
+  --nav-blur-bg: rgba(255,255,255,0.7);
+  --nav-blur: 8px;
   /*===== Margenes =====*/
   --mb-2: 1rem;
   --mb-4: 2rem;
@@ -23,6 +25,7 @@
   --mb-6: 3rem;
   /*===== z index =====*/
   --z-back: -10;
+  --transition: 1.0s cubic-bezier(0.4, 0, 0.2, 1);
   --z-fixed: 100;
 }
 @media screen and (min-width: 968px) {
@@ -104,17 +107,22 @@ img {
   margin-right: var(--mb-2);
 }
 
+/* Modernized Nav */
 .l-header {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: var(--z-fixed);
   background-color: #fff;
-  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+  box-shadow: 0 1px 5px rgba(146, 161, 176, 0.1);
+  z-index: var(--z-fixed);
+  background: var(--nav-blur-bg);
+  backdrop-filter: blur(var(--nav-blur));
+  -webkit-backdrop-filter: blur(var(--nav-blur));
+  border-bottom: 1px solid rgba(200,200,200,0.15);
+  transition: background var(--transition);
 }
 
-/*===== NAV =====*/
 .nav {
   height: var(--header-height);
   display: flex;
@@ -134,22 +142,18 @@ img {
     transition: 0.5s;
   }
 }
-.nav__item {
-  margin-bottom: var(--mb-4);
-}
+.nav__item { margin-bottom: var(--mb-4); }
 .nav__link {
   position: relative;
   color: #fff;
-  display: inline-block; /* Ensure transform works properly */
-  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  display: inline-block;
+  transition: color 0.3s, transform 0.3s;
+  animation: text-fade-in 0.5s ease-in-out;
 }
-
 .nav__link:hover {
-  color: var(--first-color); /* Color transition on hover */
-  transform: translateY(-2px); /* Slight upward movement */
+  color: var(--first-color);
+  transform: translateY(-2px);
 }
-
-/* Animation for the underline */
 .nav__link::after {
   position: absolute;
   content: "";
@@ -158,12 +162,15 @@ img {
   left: 0;
   top: 2rem;
   background-color: var(--first-color);
-  transition: width 0.5s ease-in;
+  transition: width 0.5s;
 }
-
-.nav__link:hover::after {
-  width: 100%;
+.nav__link:hover::after { width: 100%; }
+@keyframes text-fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
+.nav__logo { color: var(--second-color); }
+.nav__toggle { color: var(--second-color); font-size: 1.5rem; cursor: pointer; }
 
 /* Keyframe for additional text animations */
 @keyframes text-fade-in {
@@ -249,35 +256,28 @@ img {
   width: 360px;
 }
 
-/*BUTTONS*/
-.button {
+.button, .contact__button {
   display: inline-block;
-  background-color: var(--first-color);
+  background: linear-gradient(90deg, var(--first-color) 0%, #ffb86c 100%);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  border: none;
+  outline: none;
   color: #fff;
   padding: 0.75rem 2.5rem;
   font-weight: var(--font-semi);
-  border-radius: 0.5rem;
-  transition: 0.3s;
-}
-.button:hover {
-  box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15);
-}
-
-.button__download {
-  display: inline-block;
-  background-color: var(--first-color);
-  color: #fff;
-  padding: 0.75rem 2.5rem;
-  font-weight: var(--font-semi);
-  border-radius: 0.5rem;
-  transition: 0.3s;
-  text-align: center;
+  border-radius: 0.8rem;
+  font-size: var(--normal-font-size);
+  cursor: pointer;
   margin-left: auto;
-  margin-right: auto;
+  transition:
+  transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+  background-position 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.button__download:hover {
-  box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15);
+.button:hover, .contact__button:hover {
+  transform: translateY(-1px) scale(1.02);
+  background-position: 100% 50%; /* makes gradient move smoothly */
 }
 
 /* ===== ABOUT =====*/
@@ -346,6 +346,23 @@ img {
 
 .work__text {
   margin-bottom: var(--mb-4);
+  display: flex;
+  align-items: center;
+  gap: 4px;  
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.3em;
+  height: 0.8em;
+  background-color: currentColor;
+  margin-left: 0.3em;
+  animation: blink 1.0s step-end infinite alternate;
+  vertical-align: center;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 .skills__data {
@@ -357,7 +374,7 @@ img {
   padding: 0.5rem 1rem;
   margin-bottom: var(--mb-4);
   border-radius: 0.5rem;
-  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
+  /* box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15); */
 }
 .skills__icon {
   font-size: 2rem;
@@ -389,23 +406,43 @@ img {
 .skills__ux {
   width: 85%;
 }
-.skills__img {
+.skills__img, .skills__img2 {
   border-radius: 0.5rem;
   margin-bottom: 5rem;
 }
 
+.link-inherit {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-inherit:hover {
+    color: #007aff; /* or any accent color */
+}
+
 /* ===== WORK =====*/
+.work__item:hover .work__img img,
+.work__item:hover .work__img_subtitle {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+  color: #f00;
+}
+
 .work__container {
   row-gap: 2rem;
 }
 
 .work__img_subtitle {
+  display: flex;
+  justify-content: center;  /* centers horizontally */
+  align-items: center;       /* centers vertically */
+  gap: 4px;
   padding-top: 1.5rem;
-  text-align: center;
+  text-align: center; /* optional, for multi-line text */
 }
 
 .work__img {
-  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
   border-radius: 0.5rem;
   overflow: hidden;
 }
@@ -426,14 +463,6 @@ img {
   border: 1.5px solid var(--second-color);
   outline: none;
   margin-bottom: var(--mb-4);
-}
-.contact__button {
-  display: block;
-  border: none;
-  outline: none;
-  font-size: var(--normal-font-size);
-  cursor: pointer;
-  margin-left: auto;
 }
 
 /* ===== FOOTER =====*/
@@ -471,7 +500,7 @@ img {
 }
 @media screen and (min-width: 576px) {
   .home {
-    padding: 4rem 0 2rem;
+    padding: 4rem 0 20rem;
   }
   .home__social {
     padding-top: 0;
@@ -503,9 +532,7 @@ img {
     column-gap: 1rem;
     justify-items: center;
   }
-  .button__download {
-    margin-right: auto;
-  }
+
   .work__container {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
@@ -580,11 +607,9 @@ img {
   .experience__container {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
+    padding-bottom: 8rem;
     align-items: center;
     text-align: initial;
-  }
-  .button__download {
-    margin-right: 0;
   }
   .bd-grid {
     margin-left: auto;
