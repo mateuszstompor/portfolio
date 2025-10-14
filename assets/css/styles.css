@@ -299,6 +299,7 @@ img {
 /* ===== EXPERIENCE =====*/
 .experience__container {
   row-gap: 2rem;
+  padding-bottom: 8rem;
   text-align: center;
 }
 
@@ -584,7 +585,6 @@ img {
   .experience__container {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
-    padding-bottom: 8rem;
     align-items: center;
     text-align: initial;
   }
