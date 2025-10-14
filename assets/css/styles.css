@@ -391,7 +391,7 @@ img {
 .skills__ux {
   width: 85%;
 }
-.skills__img {
+.skills__img, .skills__img2 {
   border-radius: 0.5rem;
   margin-bottom: 5rem;
 }
