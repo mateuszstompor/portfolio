@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Typing Animation with Correction</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --text:#e6eef8;
+      --muted:#9fb0c8;
+      --accent:#6ee7b7;
+      --error:#ff6b6b;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg) 0%, #071026 100%);
+      color:var(--text); display:flex; align-items:center; justify-content:center;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      padding:28px 32px; border-radius:14px; width:min(880px,92%);
+      box-shadow:0 10px 30px rgba(2,6,23,0.6);
+    }
+    h1{margin:0 0 8px 0; font-size:18px; color:var(--accent);}
+    p.lead{margin:0 0 18px 0; color:var(--muted); font-size:13px}
+
+    .viewport{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      padding:18px; border-radius:10px; font-family: "SF Mono", "Fira Code", Menlo, monospace; font-size:20px; line-height:1.4;
+      color:var(--text); position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.03);
+      min-height:68px;
+    }
+    .cursor{
+      display:inline-block; width:10px; height:24px; vertical-align:bottom; margin-left:2px; border-radius:2px;
+      background:var(--text); animation:blink 1s steps(2,end) infinite;
+    }
+    @keyframes blink{50%{opacity:0}}
+    .wrong{color:var(--error); text-decoration:underline wavy var(--error)}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Typing animation with self-correction</h1>
+    <p class="lead">It types a phrase, realizes a mistake, and corrects it — like a thoughtful coder.</p>
+
+    <div class="viewport"><span id="text"></span><span class="cursor"></span></div>
+  </div>
+
+  <script>
+    const textEl = document.getElementById('text');
+    const first = "Hi I'm a codemaster";
+    const corrected = "Hi, I'm Mateusz, a programmer";
+
+    const TYPING_SPEED = 70;
+
+    function wait(ms){return new Promise(r=>setTimeout(r,ms))}
+
+    async function typeText(text){
+      for(const ch of text){
+        textEl.textContent += ch;
+        await wait(TYPING_SPEED + Math.random()*60);
+      }
+    }
+
+    async function backspace(count){
+      for(let i=0;i<count;i++){
+        textEl.textContent = textEl.textContent.slice(0,-1);
+        await wait(40 + Math.random()*40);
+      }
+    }
+
+    async function animate(){
+      await typeText(first);
+      await wait(800);
+      await backspace(first.length);
+      await wait(400);
+      await typeText(corrected);
+    }
+
+    animate();
+  </script>
+</body>
+</html>

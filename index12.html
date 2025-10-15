@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Typing Animation with Enhanced Effects</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --text:#e6eef8;
+      --muted:#9fb0c8;
+      --accent:#6ee7b7;
+      --error:#ff6b6b;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg) 0%, #071026 100%);
+      color:var(--text); display:flex; align-items:center; justify-content:center;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      padding:28px 32px; border-radius:14px; width:min(880px,92%);
+      box-shadow:0 10px 30px rgba(2,6,23,0.6);
+    }
+    h1{margin:0 0 8px 0; font-size:18px; color:var(--accent);}
+    p.lead{margin:0 0 18px 0; color:var(--muted); font-size:13px}
+
+    .viewport{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      padding:18px; border-radius:10px; font-family: "SF Mono", "Fira Code", Menlo, monospace; font-size:20px; line-height:1.4;
+      color:var(--text); position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.03);
+      min-height:68px;
+    }
+
+    .cursor{
+      display:inline-block; width:10px; height:24px; vertical-align:bottom; margin-left:2px; border-radius:2px;
+      background:var(--text); animation:blink 1s steps(2,end) infinite;
+      transition: background 0.2s ease, opacity 0.3s ease;
+    }
+    .cursor.active{ background: var(--accent); opacity: 1; }
+    .cursor.delete{ background: var(--error); }
+    .cursor.idle{ opacity: 0.4; }
+
+    @keyframes blink{50%{opacity:0}}
+
+    .char {
+      display:inline-block;
+      transition: transform 0.1s ease, opacity 0.15s ease;
+      animation: twitch 0.08s ease;
+    }
+    .char.new {
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
+    @keyframes twitch {
+      0% { transform: translateY(0); }
+      30% { transform: translateY(-1px); }
+      100% { transform: translateY(0); }
+    }
+
+    .char:last-child {
+      text-shadow: 0 0 6px var(--accent);
+      animation: glow 0.4s ease;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 14px var(--accent); }
+      to { text-shadow: 0 0 0 var(--accent); }
+    }
+
+    .thinking {
+      display:inline-block; margin-left:4px; visibility:hidden;
+    }
+    .thinking span {
+      opacity:0;
+      animation: blinkDots 1.2s infinite;
+    }
+    .thinking span:nth-child(2){animation-delay:0.2s}
+    .thinking span:nth-child(3){animation-delay:0.4s}
+    @keyframes blinkDots {0%,80%,100%{opacity:0} 40%{opacity:1}}
+
+    #text {
+    white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Typing animation with expressive effects</h1>
+    <p class="lead">This version adds glowing text, cursor feedback, and a “thinking” delay before correction.</p>
+
+    <div class="viewport">
+      <span id="text"></span><span class="cursor" id="cursor"></span>
+      <div class="thinking" id="thinking"><span>.</span><span>.</span><span>.</span></div>
+    </div>
+  </div>
+
+  <script>
+    const textEl = document.getElementById('text');
+    const cursor = document.getElementById('cursor');
+    const thinking = document.getElementById('thinking');
+
+    const first = "Hi I'm a codemaster";
+    const corrected = "Hi, I'm Mateusz, a programmer";
+    const TYPING_SPEED = 70;
+
+    function wait(ms){return new Promise(r=>setTimeout(r,ms))}
+
+    function setCursor(state){
+      cursor.classList.remove('active','delete','idle');
+      if(state) cursor.classList.add(state);
+    }
+
+    async function typeText(text){
+      setCursor('active');
+      for(const ch of text){
+        const span = document.createElement('span');
+        span.textContent = ch;
+        span.className = 'char new';
+        textEl.appendChild(span);
+        requestAnimationFrame(()=>span.classList.remove('new'));
+        await wait(TYPING_SPEED + Math.random()*60);
+      }
+      setCursor('idle');
+    }
+
+    async function backspace(count){
+      setCursor('delete');
+      for(let i=0;i<count;i++){
+        const last = textEl.lastChild;
+        if(last){
+          last.style.opacity = '0';
+          last.style.transform = 'scale(0.6)';
+          await wait(80);
+          last.remove();
+        }
+      }
+      setCursor('idle');
+    }
+
+    async function animate(){
+      await typeText(first);
+      await wait(800);
+      thinking.style.visibility = 'visible';
+      await wait(1500);
+      thinking.style.visibility = 'hidden';
+      await backspace(first.length);
+      await wait(400);
+      await typeText(corrected);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
