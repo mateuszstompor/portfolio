@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name — product designer & front-end developer." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0f1720;
+      --card: #0b1220;
+      --text: #e6eef8;
+      --muted: #9fb0c5;
+      --accent: #6ee7b7; /* mint */
+      --glass: rgba(255,255,255,0.02);
+      --radius: 12px;
+      --gap: 20px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      color-scheme: dark;
+    }
+
+    /* Layout basics */
+    * {box-sizing: border-box;}
+    html,body {height:100%;}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #07121a 0%, var(--bg) 100%);
+      color:var(--text);
+      line-height:1.5;
+      font-size:16px;
+      padding:48px 24px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+    }
+    .wrap{
+      width:100%;
+      max-width:1100px;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:48px;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:var(--text);
+    }
+    .logo{
+      width:44px;
+      height:44px;
+      border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),#8ad1ff 60%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:#07121a;
+      box-shadow: 0 6px 18px rgba(16,24,32,0.45);
+      flex:0 0 44px;
+    }
+    nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    a.navlink{
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:8px;
+      transition:all .18s ease;
+      font-weight:600;
+    }
+    a.navlink:hover, a.navlink:focus{ color:var(--text); background:var(--glass); outline: none; }
+
+    /* Mobile menu button */
+    .menu-btn{
+      display:none;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.04);
+      color:var(--muted);
+      padding:8px;
+      border-radius:10px;
+      cursor:pointer;
+    }
+
+    main { display:grid; gap:var(--gap); }
+
+    /* Hero */
+    .hero{
+      display:flex;
+      gap:28px;
+      align-items:center;
+      justify-content:space-between;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      padding:28px;
+      border-radius:var(--radius);
+      box-shadow: 0 8px 30px rgba(3,6,12,0.5);
+    }
+    .intro{
+      max-width:62%;
+    }
+    h1{
+      margin:0 0 8px 0;
+      font-weight:700;
+      font-size:clamp(1.6rem, 2.6vw, 2.4rem);
+      letter-spacing:-0.02em;
+    }
+    p.lead{
+      margin:0 0 18px 0;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+    .cta{
+      display:flex;
+      gap:12px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      border: none;
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent), #8ad1ff 80%);
+      color:#07121a;
+      box-shadow: 0 8px 20px rgba(109,201,180,0.12);
+    }
+    .btn-ghost{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.04);
+      color:var(--muted);
+    }
+
+    /* Avatar */
+    .avatar{
+      width:110px;
+      height:110px;
+      border-radius:18px;
+      flex:0 0 110px;
+      background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:var(--text);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02), 0 6px 22px rgba(0,0,0,0.6);
+    }
+
+    /* Projects */
+    .section-title{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+    }
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border-radius:12px;
+      padding:12px;
+      overflow:hidden;
+      transition:transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s;
+      cursor:pointer;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .card:hover{ transform:translateY(-8px) scale(1.01); box-shadow: 0 14px 40px rgba(2,6,23,0.6); }
+    .card img{ width:100%; height:160px; object-fit:cover; border-radius:8px; display:block; margin-bottom:12px; }
+    .card h3{ margin:0 0 6px 0; font-size:1.02rem; }
+    .card p{ margin:0; color:var(--muted); font-size:0.95rem; }
+
+    /* About + Contact */
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:18px;
+    }
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      padding:18px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .skills{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .chip{
+      background:rgba(255,255,255,0.02);
+      padding:8px 10px;
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:0.9rem;
+    }
+
+    form input, form textarea{
+      width:100%;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.04);
+      padding:10px 12px;
+      border-radius:8px;
+      color:var(--text);
+      resize:vertical;
+      font-size:0.95rem;
+      margin-bottom:10px;
+    }
+    form label{ color:var(--muted); font-size:0.9rem; display:block; margin-bottom:6px; }
+    form button[type="submit"]{
+      background:var(--accent);
+      border:none;
+      color:#07121a;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    footer{
+      margin-top:18px;
+      color:var(--muted);
+      text-align:center;
+      font-size:0.95rem;
+    }
+
+    /* Responsive */
+    @media (max-width:920px){
+      .intro{ max-width:60%; }
+      .projects{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .grid-2{ grid-template-columns: 1fr; }
+      .avatar{ width:96px; height:96px; flex:0 0 96px; }
+    }
+    @media (max-width:640px){
+      body{ padding:18px; }
+      header{ margin-bottom:18px; }
+      .menu-btn{ display:inline-flex; }
+      nav{ display:none; }
+      .hero{ flex-direction:column; align-items:flex-start; }
+      .intro{ max-width:100%; }
+      .projects{ grid-template-columns:1fr; }
+    }
+
+    /* Accessibility: focus */
+    :focus { outline: 3px solid rgba(110,231,183,0.14); outline-offset:3px; }
+    :focus:not(:focus-visible) { outline: none; }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="top">
+    <header>
+      <a class="brand" href="#top">
+        <div class="logo" aria-hidden="true">YN</div>
+        <div>
+          <div style="font-weight:700">Your Name</div>
+          <div style="font-size:0.85rem; color:var(--muted); margin-top:2px;">Product Designer & Front-end</div>
+        </div>
+      </a>
+
+      <nav id="nav">
+        <a class="navlink" href="#projects">Projects</a>
+        <a class="navlink" href="#about">About</a>
+        <a class="navlink" href="#contact">Contact</a>
+        <a class="navlink" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="intro">
+          <h1 id="hero-title">Hello — I'm Your Name.</h1>
+          <p class="lead">I craft clean, modern interfaces and build robust front-end experiences. I focus on usability, performance, and delightful details.</p>
+
+          <div class="cta">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+          <div class="avatar" aria-hidden="true">YN</div>
+          <div style="color:var(--muted); font-size:0.9rem;">Based in City • Available for remote work</div>
+        </div>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-title">
+        <div class="section-title">
+          <h2 id="projects-title" style="margin:0;">Selected Projects</h2>
+          <a class="navlink" href="/projects">See all</a>
+        </div>
+
+        <div class="projects">
+          <article class="card" tabindex="0" role="link" aria-label="Project One — E-commerce redesign">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=8c0b4fbe8e5b2b577f1b1b6a1b5fb3c9" alt="screenshot project one">
+            <h3>Project One</h3>
+            <p>Shop redesign — improved conversion by simplifying checkout and clarifying choices.</p>
+          </article>
+
+          <article class="card" tabindex="0" role="link" aria-label="Project Two — Dashboard">
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=8d0e9bd0cb7bdc486b3d5b5fcae81d95" alt="screenshot project two">
+            <h3>Project Two</h3>
+            <p>Analytics dashboard — complex data surfaces made simple and actionable.</p>
+          </article>
+
+          <article class="card" tabindex="0" role="link" aria-label="Project Three — Marketing site">
+            <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6e2f0a67f4b9b2d4a1aeb9d6f7d7f5d8" alt="screenshot project three">
+            <h3>Project Three</h3>
+            <p>Marketing site — focused on fast load, crisp typography and clear messaging.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="grid-2" style="margin-top:18px;">
+        <div class="panel" id="about" aria-labelledby="about-title">
+          <h2 id="about-title" style="margin-top:0;">About</h2>
+          <p style="color:var(--muted); margin-top:6px;">I’m a product designer & front-end developer with X years experience building products used by thousands. I enjoy turning complex problems into simple, elegant solutions and collaborating across product, design, and engineering.</p>
+
+          <div style="margin-top:12px;">
+            <strong style="display:block; color:var(--text); margin-bottom:8px;">Skills</strong>
+            <div class="skills">
+              <div class="chip">UX Design</div>
+              <div class="chip">React</div>
+              <div class="chip">HTML & CSS</div>
+              <div class="chip">Animation</div>
+              <div class="chip">Figma</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px; color:var(--muted); font-size:0.95rem;">
+            <strong>Approach</strong>
+            <p style="margin:8px 0 0 0;">I start with user research, iterate through prototypes, and measure outcomes. I care about accessibility, performance, and maintainable code.</p>
+          </div>
+        </div>
+
+        <aside class="panel" id="contact" aria-labelledby="contact-title">
+          <h2 id="contact-title" style="margin-top:0;">Contact</h2>
+          <p style="color:var(--muted); margin-top:6px;">Interested in working together? Send a quick note — or find me on social.</p>
+
+          <!-- Simple form — replace action with your form endpoint or keep JS mailto fallback -->
+          <form id="contactForm">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send message</button>
+          </form>
+
+          <div style="margin-top:12px; color:var(--muted); display:flex; gap:8px;">
+            <a class="navlink" href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>
+            <a class="navlink" href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </aside>
+      </section>
+
+      <footer>
+        © <span id="year"></span> Your Name — Designed & built with care.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Basic interactivity: mobile menu, mailto fallback for form, set year
+    (function(){
+      const menuBtn = document.getElementById('menuBtn');
+      const nav = document.getElementById('nav');
+      menuBtn?.addEventListener('click', () => {
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!expanded));
+        // toggle display (simple)
+        nav.style.display = expanded ? 'none' : 'flex';
+      });
+
+      // Smooth-scrolling for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const target = document.querySelector(a.getAttribute('href'));
+          if(target){
+            e.preventDefault();
+            target.scrollIntoView({behavior:'smooth', block:'start'});
+            // close mobile menu
+            if(window.innerWidth < 640) { nav.style.display = 'none'; menuBtn.setAttribute('aria-expanded','false'); }
+          }
+        });
+      });
+
+      // Contact form: Try to POST to a server if configured; otherwise open mail client using mailto.
+      const form = document.getElementById('contactForm');
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = encodeURIComponent(form.name.value.trim());
+        const email = encodeURIComponent(form.email.value.trim());
+        const message = encodeURIComponent(form.message.value.trim());
+
+        // If you have an endpoint, you can replace the fetch below and handle server response.
+        // Fallback: open mail client
+        const subject = encodeURIComponent(`Portfolio contact from ${form.name.value}`);
+        const body = encodeURIComponent(`Name: ${form.name.value}\nEmail: ${form.email.value}\n\n${form.message.value}`);
+        window.location.href = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
+      });
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
