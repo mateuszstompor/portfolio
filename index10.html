@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Typing Animation with Error Correction</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --text:#e6eef8;
+      --muted:#9fb0c8;
+      --accent:#6ee7b7;
+      --error:#ff6b6b;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg) 0%, #071026 100%);
+      color:var(--text); display:flex; align-items:center; justify-content:center;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      padding:28px 32px; border-radius:14px; width:min(880px,92%);
+      box-shadow:0 10px 30px rgba(2,6,23,0.6);
+    }
+    h1{margin:0 0 8px 0; font-size:18px; color:var(--accent);}
+    p.lead{margin:0 0 18px 0; color:var(--muted); font-size:13px}
+
+    .type-wrap{
+      display:flex; gap:12px; align-items:flex-end; min-height:64px;
+    }
+    .viewport{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      padding:18px; border-radius:10px; flex:1; font-family: "SF Mono", "Fira Code", Menlo, monospace; font-size:20px; line-height:1.4;
+      color:var(--text); position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.03);
+      min-height:68px;
+    }
+    .line{white-space:pre-wrap; word-break:break-word}
+
+    /* Cursor */
+    .cursor{
+      display:inline-block; width:10px; height:24px; vertical-align:bottom; margin-left:2px; border-radius:2px;
+      background:var(--text); animation:blink 1s steps(2,end) infinite; transform-origin:center;
+    }
+    @keyframes blink{50%{opacity:0}}
+
+    /* wrong char highlight */
+    .wrong{color:var(--error); text-decoration:underline wavy var(--error)}
+
+    /* controls */
+    .controls{display:flex; gap:8px; align-items:center}
+    button{background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--muted); padding:8px 12px; border-radius:8px; cursor:pointer}
+    button:hover{color:var(--text)}
+    .small{font-size:12px; padding:6px 8px}
+
+    footer{margin-top:14px; color:var(--muted); font-size:12px}
+
+    /* responsive */
+    @media (max-width:520px){ .viewport{font-size:16px} }
+  </style>
+</head>
+<body>
+  <div class="card" role="region" aria-label="Typing demo">
+    <h1>Typing animation with error correction</h1>
+    <p class="lead">This demo types text, intentionally makes occasional mistakes, then corrects them — like a human typist.</p>
+
+    <div class="type-wrap">
+      <div class="viewport" id="viewport" aria-live="polite">
+        <div class="line" id="line"></div><span class="cursor" id="cursor" aria-hidden="true"></span>
+      </div>
+      <div class="controls" aria-hidden="false">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="reset">Reset</button>
+      </div>
+    </div>
+
+    <footer>Tip: click <strong>Pause</strong> to inspect the error correction in motion.</footer>
+  </div>
+
+  <script>
+    // Config
+    const PHRASES = [
+      "Building fast native plugins for Final Cut Pro.",
+      "Optimizing Metal shaders for realtime performance.",
+      "I write C++ and Objective-C++ for plugin pipelines.",
+      "Cook-Torrance BRDF, GGX VNDF and importance sampling are fun!",
+      "Ship robust licensing and CI pipelines."
+    ];
+
+    const TYPING_SPEED = 60;       // ms per char (base)
+    const VARIANCE = 30;           // randomized variance in ms
+    const ERROR_RATE = 0.08;       // chance per character to mistype
+    const PAUSE_BETWEEN_PHRASES = 900; // ms after finishing a phrase
+
+    // Elements
+    const lineEl = document.getElementById('line');
+    const cursorEl = document.getElementById('cursor');
+    const startBtn = document.getElementById('start');
+    const pauseBtn = document.getElementById('pause');
+    const resetBtn = document.getElementById('reset');
+
+    let state = {
+      running: false,
+      paused: false,
+      phraseIndex: 0,
+      charIndex: 0,
+      display: '',
+    };
+
+    function randRange(n){return Math.floor(Math.random()*n)}
+    function wait(ms){return new Promise(r=>setTimeout(r,ms))}
+
+    // pick a wrong char: choose random printable ASCII similar to target
+    function wrongChar(correct){
+      const pool = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.-;:\\' + " '" + '"';
+      // prefer chars near correct in alphabet if letter
+      if(/[a-zA-Z]/.test(correct)){
+        const base = correct.toLowerCase();
+        const offs = [-2,-1,1,2];
+        const chosen = base.charCodeAt(0) + offs[Math.floor(Math.random()*offs.length)];
+        return String.fromCharCode(chosen) === correct ? pool[Math.floor(Math.random()*pool.length)] : String.fromCharCode(chosen);
+      }
+      return pool[Math.floor(Math.random()*pool.length)];
+    }
+
+    async function typeLoop(){
+      state.running = true;
+      while(state.running){
+        if(state.paused){ await wait(100); continue }
+        const phrase = PHRASES[state.phraseIndex % PHRASES.length];
+        if(state.charIndex >= phrase.length){
+          // finished phrase; pause then delete it and move next
+          await wait(PAUSE_BETWEEN_PHRASES);
+          // optionally keep phrase and continue -> here we delete to demonstrate correction
+          await backspace(phrase.length);
+          state.phraseIndex++;
+          state.charIndex = 0;
+          await wait(200);
+          continue;
+        }
+
+        const correctChar = phrase[state.charIndex];
+        // decide to make an error
+        let makeError = Math.random() < ERROR_RATE && correctChar.trim() !== '';
+        if(makeError){
+          // type wrong char(s), then backspace and type correct char
+          const wrong = wrongChar(correctChar);
+          await doTypeChar(wrong, true); // mark visually as wrong
+          await wait(220 + randRange(200));
+          await backspace(1);
+        }
+
+        await doTypeChar(correctChar, false);
+        state.charIndex++;
+        await wait(TYPING_SPEED + (Math.random()-0.5)*VARIANCE);
+      }
+    }
+
+    async function doTypeChar(ch, markWrong){
+      // append a span for wrong if needed
+      if(markWrong){
+        const span = document.createElement('span');
+        span.className = 'wrong';
+        span.textContent = ch;
+        lineEl.appendChild(span);
+      } else {
+        // normal char
+        lineEl.appendChild(document.createTextNode(ch));
+      }
+      // scroll into view if long
+      cursorEl.scrollIntoView({block:'nearest'});
+    }
+
+    async function backspace(n){
+      for(let i=0;i<n;i++){
+        if(lineEl.lastChild){
+          // if lastChild is text node with length>1, remove last char
+          const last = lineEl.lastChild;
+          if(last.nodeType === Node.TEXT_NODE && last.textContent.length>1){
+            last.textContent = last.textContent.slice(0,-1);
+          } else {
+            lineEl.removeChild(last);
+          }
+        }
+        await wait(40 + randRange(70));
+      }
+    }
+
+    // control handlers
+    startBtn.addEventListener('click', ()=>{
+      if(!state.running){ typeLoop() }
+      state.paused = false;
+    });
+    pauseBtn.addEventListener('click', ()=>{ state.paused = true });
+    resetBtn.addEventListener('click', ()=>{
+      state.running = false; state.paused = false; state.phraseIndex = 0; state.charIndex = 0; lineEl.textContent = '';
+    });
+
+    // start automatically
+    typeLoop();
+
+    // accessibility: pause when window/tab not visible
+    document.addEventListener('visibilitychange', ()=>{
+      state.paused = document.hidden;
+    });
+  </script>
+</body>
+</html>

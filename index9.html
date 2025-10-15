@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <style>
+    :root{
+      --bg: #0b0f12;
+      --card: #0f1518;
+      --muted: #9aa5ad;
+      --accent: #5eead4;
+      --accent-2: #60a5fa;
+      --text: #e6eef3;
+      --glass: rgba(255,255,255,0.03);
+      --shadow: rgba(2,6,23,0.6);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg),#071015);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+    }
+
+    /* Header */
+    header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      background:linear-gradient(180deg, rgba(4,8,12,0.6), rgba(4,8,12,0.35));
+      backdrop-filter: blur(6px);
+      padding:0.6rem 1rem;
+      border-bottom:1px solid rgba(255,255,255,0.03);
+      display:flex;
+      gap:1rem;
+      align-items:center;
+    }
+    .brand{
+      font-weight:700;
+      color:var(--accent);
+      letter-spacing:0.2px;
+    }
+    nav{margin-left:auto; display:flex; gap:0.75rem; align-items:center;}
+    nav a{color:var(--muted); text-decoration:none; font-weight:600; padding:0.4rem 0.6rem; border-radius:6px;}
+    nav a:hover{color:var(--text); background: rgba(255,255,255,0.02);}
+
+    /* Parallax section container */
+    .parallax{
+      position:relative;
+      height:68vh;
+      min-height:360px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--text);
+      text-align:center;
+      margin-bottom:1rem;
+    }
+    .parallax .bg{
+      position:absolute;
+      top:0; left:0; width:100%;
+      height:130%;
+      background-position:center;
+      background-size:cover;
+      will-change:transform;
+      transform:translate3d(0,0,0);
+      filter:brightness(0.6) contrast(1.05) saturate(1.05);
+    }
+    .parallax .inner{position:relative; z-index:10; padding:2rem; text-shadow:0 8px 30px rgba(0,0,0,0.6);}
+    .parallax h1{margin:0 0 0.3rem; font-size:clamp(1.6rem,4.2vw,3rem);}
+    .parallax p{margin:0; color:var(--muted)}
+
+    /* Content container */
+    .content{max-width:1080px; margin:0 auto; padding:3rem 1rem;}
+
+    /* About */
+    .about{
+      display:grid;
+      grid-template-columns: 280px 1fr;
+      gap:1.5rem;
+      align-items:start;
+    }
+    .profile{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      padding:1rem;
+      border-radius:12px;
+      text-align:center;
+      box-shadow: 0 8px 30px var(--shadow);
+    }
+    .profile img{width:100%; border-radius:10px; display:block; margin-bottom:0.75rem;}
+    .profile h3{margin:0; font-size:1.05rem}
+    .profile p{margin:0.35rem 0 0; color:var(--muted); font-size:0.95rem}
+
+    .bio{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:1.25rem;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 8px 30px var(--shadow);
+    }
+    .skills{display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.8rem}
+    .skill{font-size:0.85rem; padding:0.35rem 0.6rem; border-radius:999px; background:rgba(255,255,255,0.03); color:var(--muted); border:1px solid rgba(255,255,255,0.02)}
+
+    .cv-actions{display:flex; gap:0.6rem; margin-top:1rem}
+    .btn{
+      display:inline-flex; align-items:center; gap:0.6rem;
+      padding:0.55rem 0.85rem; border-radius:10px; font-weight:700;
+      text-decoration:none; color:var(--text);
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      box-shadow: 0 6px 18px rgba(11,20,30,0.5);
+    }
+    .btn.secondary{
+      background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); font-weight:600;
+    }
+
+    /* Gallery */
+    .gallery-grid{
+      display:grid;
+      gap:0.9rem;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    }
+    .tile{
+      position:relative;
+      border-radius:10px;
+      overflow:hidden;
+      cursor:pointer;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      transition:transform .22s ease, box-shadow .22s ease;
+    }
+    .tile img{display:block; width:100%; height:220px; object-fit:cover;}
+    .tile:hover{transform:translateY(-6px); box-shadow: 0 14px 40px rgba(2,6,23,0.6);}
+    .tile .meta{position:absolute; left:10px; bottom:10px; padding:0.4rem 0.55rem; background:rgba(0,0,0,0.4); color:var(--text); border-radius:6px; font-weight:700; font-size:0.9rem}
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+      z-index:120; background:linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.85));
+      padding:2rem;
+    }
+    .lightbox.open{display:flex}
+    .lb-inner{max-width:1100px; width:100%; max-height:90vh; display:flex; gap:1rem; align-items:center; justify-content:center}
+    .lb-img{flex:1; border-radius:10px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:#081216}
+    .lb-img img{max-width:100%; max-height:85vh; display:block;}
+    .lb-side{width:320px; color:var(--muted); font-size:0.95rem; display:flex; flex-direction:column; gap:0.6rem}
+    .lb-controls{display:flex; gap:0.5rem; margin-top:auto}
+    .icon-btn{background:rgba(255,255,255,0.03); color:var(--text); padding:0.55rem; border-radius:8px; border:1px solid rgba(255,255,255,0.03); cursor:pointer}
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 380px;
+      gap:1.5rem;
+      align-items:start;
+    }
+    form{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:1.25rem; border-radius:12px; border:1px solid rgba(255,255,255,0.03); box-shadow: 0 8px 30px var(--shadow);}
+    label{display:block; font-size:0.9rem; color:var(--muted); margin-bottom:0.35rem}
+    input, textarea{
+      width:100%; padding:0.6rem; border-radius:8px; border:1px solid rgba(255,255,255,0.04);
+      background:rgba(255,255,255,0.01); color:var(--text); font-size:0.95rem; outline:none;
+    }
+    textarea{min-height:140px; resize:vertical}
+    .form-foot{display:flex; gap:0.6rem; margin-top:0.6rem; align-items:center}
+    .hint{color:var(--muted); font-size:0.9rem}
+
+    footer{padding:2rem 1rem; color:var(--muted); text-align:center; font-size:0.95rem}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .about{grid-template-columns: 1fr; }
+      .contact{grid-template-columns:1fr; }
+      .parallax{height:55vh}
+      .lb-side{display:none}
+    }
+    @media (max-width:640px){
+      nav{display:none}
+      .parallax{height:48vh}
+      .profile img{height:230px; object-fit:cover}
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">Your Name</div>
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+      <a href="#cv" id="cv-link">Resume</a>
+    </nav>
+  </header>
+
+  <!-- Hero Parallax -->
+  <section class="parallax" data-speed="0.36" aria-hidden="false">
+    <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1600&auto=format&fit=crop');"></div>
+    <div class="inner" role="banner">
+      <h1>Your Name — Designer & Developer</h1>
+      <p>Building delightful interfaces and meaningful experiences. Based in City, Country.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="content" id="about">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
+        <h2 style="margin:0;">About Me</h2>
+        <div style="color:var(--muted); font-size:0.95rem;">Available for freelance & full-time work</div>
+      </div>
+
+      <div class="about" aria-labelledby="about">
+        <aside class="profile" aria-label="Profile">
+          <img src="https://images.unsplash.com/photo-1531123414780-f0b495fd5b17?q=80&w=800&auto=format&fit=crop" alt="Portrait">
+          <h3>Your Name</h3>
+          <p>Product designer & frontend developer</p>
+
+          <div class="cv-actions">
+            <a class="btn" id="download-cv" href="resume.pdf" target="_blank" rel="noopener" download>Download CV</a>
+            <a class="btn secondary" id="view-cv" href="resume.pdf" target="_blank" rel="noopener">View CV</a>
+          </div>
+
+          <div style="margin-top:0.9rem; color:var(--muted); font-size:0.9rem;">Contact: <a href="mailto:you@example.com" style="color:var(--accent) ;text-decoration:none;">you@example.com</a></div>
+        </aside>
+
+        <div class="bio">
+          <h3 style="margin-top:0; margin-bottom:0.25rem;">Hi — I'm Your Name</h3>
+          <p style="color:var(--muted); margin-top:0.4rem;">I design and build modern web applications with a focus on user-centered UI, performance and accessibility. I enjoy clean visual design, animation and solving product challenges end-to-end.</p>
+
+          <div style="margin-top:1rem;">
+            <strong style="color:var(--muted);">What I do</strong>
+            <ul style="color:var(--muted); margin-top:0.5rem">
+              <li>Product & UI design</li>
+              <li>Frontend development (HTML/CSS/JS/React/Vue)</li>
+              <li>Motion & interaction design</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:1rem;">
+            <strong style="color:var(--muted);">Skills</strong>
+            <div class="skills" aria-hidden="false">
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">React</span>
+              <span class="skill">Figma</span>
+              <span class="skill">Accessibility</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="parallax" data-speed="0.18" style="height:40vh; min-height:240px;">
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'); filter:brightness(0.5);"></div>
+      <div class="inner">
+        <h1>Selected Work</h1>
+        <p>Recent projects and case studies</p>
+      </div>
+    </section>
+
+    <section class="content" id="portfolio" aria-labelledby="portfolio">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
+        <h2 style="margin:0;">Portfolio</h2>
+        <div style="color:var(--muted); font-size:0.95rem;">Click an item to view</div>
+      </div>
+
+      <div class="gallery-grid" id="gallery">
+        <!-- Replace images and titles with your work -->
+        <div class="tile" data-index="0" tabindex="0" role="button" aria-label="Open project One">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="Project One">
+          <div class="meta">Project One</div>
+        </div>
+
+        <div class="tile" data-index="1" tabindex="0" role="button" aria-label="Open project Two">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Project Two">
+          <div class="meta">Project Two</div>
+        </div>
+
+        <div class="tile" data-index="2" tabindex="0" role="button" aria-label="Open project Three">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Project Three">
+          <div class="meta">Project Three</div>
+        </div>
+
+        <div class="tile" data-index="3" tabindex="0" role="button" aria-label="Open project Four">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Project Four">
+          <div class="meta">Project Four</div>
+        </div>
+
+        <div class="tile" data-index="4" tabindex="0" role="button" aria-label="Open project Five">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop" alt="Project Five">
+          <div class="meta">Project Five</div>
+        </div>
+
+        <div class="tile" data-index="5" tabindex="0" role="button" aria-label="Open project Six">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Project Six">
+          <div class="meta">Project Six</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project preview">
+      <div class="lb-inner" role="document">
+        <div class="lb-img" id="lb-img">
+          <img src="" alt="" id="lb-image">
+        </div>
+        <aside class="lb-side">
+          <div id="lb-title" style="color:var(--text); font-weight:700; font-size:1.05rem">Project Title</div>
+          <div id="lb-desc" style="color:var(--muted)">Short project description goes here.</div>
+          <div class="lb-controls">
+            <button class="icon-btn" id="prev" title="Previous (←)">◀</button>
+            <button class="icon-btn" id="next" title="Next (→)">▶</button>
+            <button class="icon-btn" id="close" title="Close (Esc)">✕</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <section class="content" id="contact" aria-labelledby="contact">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
+        <h2 style="margin:0;">Contact</h2>
+        <div style="color:var(--muted); font-size:0.95rem;">Let's talk about your project</div>
+      </div>
+
+      <div class="contact">
+        <form id="contact-form" novalidate>
+          <div style="display:flex; gap:0.75rem;">
+            <div style="flex:1">
+              <label for="name">Name</label>
+              <input id="name" name="name" required placeholder="Your name">
+            </div>
+            <div style="width:220px">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div style="margin-top:0.8rem;">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+          </div>
+
+          <div class="form-foot">
+            <button type="submit" class="btn">Send Message</button>
+            <div class="hint" id="form-hint">Or email me at <a href="mailto:you@example.com" style="color:var(--accent); text-decoration:none;">you@example.com</a></div>
+          </div>
+
+          <div id="form-msg" style="margin-top:0.6rem; color:var(--accent); display:none;"></div>
+        </form>
+
+        <aside style="background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015)); border-radius:12px; padding:1.2rem; border:1px solid rgba(255,255,255,0.03); box-shadow: 0 8px 30px var(--shadow);">
+          <h4 style="margin:0 0 0.5rem 0;">Availability</h4>
+          <p style="color:var(--muted); margin-top:0;">Open to remote and hybrid opportunities. Available for contract and full-time roles.</p>
+
+          <div style="margin-top:1rem;">
+            <strong style="color:var(--muted)">Quick links</strong>
+            <ul style="color:var(--muted); margin-top:0.5rem">
+              <li><a href="#portfolio" style="color:var(--accent); text-decoration:none;">See portfolio</a></li>
+              <li><a href="#cv" id="cv-ref" style="color:var(--accent); text-decoration:none;">Resume</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © Your Name — Built with care. Replace the content with your own info & assets.
+  </footer>
+
+  <script>
+    (function(){
+      /* -------- Parallax -------- */
+      const parallaxSections = Array.from(document.querySelectorAll('.parallax'));
+      const isDisabled = () => window.innerWidth < 768;
+      const items = parallaxSections.map(section => {
+        const bg = section.querySelector('.bg');
+        const speed = parseFloat(section.dataset.speed) || 0.5;
+        return { section, bg, speed };
+      });
+      let ticking = false;
+      function updateParallax(){
+        ticking = false;
+        if (isDisabled()){
+          items.forEach(it => it.bg.style.transform = 'translate3d(0,0,0)');
+          return;
+        }
+        for (const it of items){
+          const rect = it.section.getBoundingClientRect();
+          const y = rect.top * it.speed;
+          it.bg.style.transform = `translate3d(0, ${y}px, 0)`;
+        }
+      }
+      function onScroll(){ if(!ticking){requestAnimationFrame(updateParallax); ticking = true;} }
+      updateParallax();
+      window.addEventListener('scroll', onScroll, {passive:true});
+      window.addEventListener('resize', onScroll, {passive:true});
+
+      /* -------- Lightbox/Gallery -------- */
+      const gallery = Array.from(document.querySelectorAll('.gallery-grid .tile'));
+      const lightbox = document.getElementById('lightbox');
+      const lbImage = document.getElementById('lb-image');
+      const lbTitle = document.getElementById('lb-title');
+      const lbDesc = document.getElementById('lb-desc');
+      let currentIndex = 0;
+
+      // simple metadata for each tile (replace titles/descriptions as needed)
+      const itemsMeta = gallery.map((el, idx) => {
+        const img = el.querySelector('img');
+        return {
+          src: img.src,
+          alt: img.alt || `Project ${idx+1}`,
+          title: el.querySelector('.meta')?.textContent || `Project ${idx+1}`,
+          desc: 'Short description of the project. Replace with your own text.'
+        };
+      });
+
+      function openLightbox(index){
+        currentIndex = index;
+        const meta = itemsMeta[index];
+        lbImage.src = meta.src;
+        lbImage.alt = meta.alt;
+        lbTitle.textContent = meta.title;
+        lbDesc.textContent = meta.desc;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden','false');
+        // trap focus:
+        lightbox.focus();
+      }
+      function closeLightbox(){
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden','true');
+        lbImage.src = '';
+      }
+      function showNext(){
+        currentIndex = (currentIndex + 1) % itemsMeta.length;
+        openLightbox(currentIndex);
+      }
+      function showPrev(){
+        currentIndex = (currentIndex - 1 + itemsMeta.length) % itemsMeta.length;
+        openLightbox(currentIndex);
+      }
+
+      gallery.forEach((tile, i) => {
+        tile.addEventListener('click', () => openLightbox(i));
+        tile.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); } });
+      });
+
+      document.getElementById('close').addEventListener('click', closeLightbox);
+      document.getElementById('next').addEventListener('click', showNext);
+      document.getElementById('prev').addEventListener('click', showPrev);
+
+      // Close when clicking backdrop
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      // Keyboard navigation
+      window.addEventListener('keydown', (e) => {
+        if (lightbox.classList.contains('open')) {
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowRight') showNext();
+          if (e.key === 'ArrowLeft') showPrev();
+        }
+      });
+
+      /* -------- Contact Form (mock) -------- */
+      const form = document.getElementById('contact-form');
+      const formMsg = document.getElementById('form-msg');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        formMsg.style.display = 'none';
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const message = form.message.value.trim();
+        if (!name || !email || !message) {
+          showFormMessage('Please fill out all fields.', true);
+          return;
+        }
+        if (!validateEmail(email)){
+          showFormMessage('Please enter a valid email address.', true);
+          return;
+        }
+        // Mock send: display success message. Replace with real API call if needed.
+        showFormMessage('Thanks! Your message was sent (mock). I will get back to you soon.');
+        form.reset();
+      });
+      function showFormMessage(text, isError){
+        formMsg.style.display = 'block';
+        formMsg.style.color = isError ? '#ff7b7b' : 'var(--accent)';
+        formMsg.textContent = text;
+        setTimeout(()=>{ formMsg.style.display = 'none'; }, 6000);
+      }
+      function validateEmail(email){
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      /* -------- CV links: notify user to replace file if missing -------- */
+      const cvLinks = [document.getElementById('download-cv'), document.getElementById('view-cv'), document.getElementById('cv-ref'), document.getElementById('cv-link')];
+      cvLinks.forEach(a => {
+        if (!a) return;
+        // If the href is the demo resume path (resume.pdf) show tooltip hint or intercept
+        const href = a.getAttribute('href') || '';
+        if (href.includes('resume.pdf')) {
+          a.addEventListener('click', (e) => {
+            // allow actual navigation, but show a small notice
+            // (You can remove this if you add a real resume file)
+            console.info('Resume link clicked. Replace "resume.pdf" with your actual resume file.');
+          });
+        }
+      });
+
+      // small accessibility: focus lightbox on open
+      lightbox.tabIndex = -1;
+
+    })();
+  </script>
+</body>
+</html>
