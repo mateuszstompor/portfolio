@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Explore Mateusz Stompór's personal portfolio showcasing top projects, programming expertise, and skills in Final Cut Pro plugin development, Apple Metal, and Objective-C.">
+        <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
+        <link rel="stylesheet" href="assets/css/styles-new.css">
+
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>Mateusz Stompór | Arctic Codes</title>
+
+        <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mateusz Stompór",
+        "url": "https://arctic.codes",
+        "image": "https://arctic.codes/assets/img/about.jpg",
+        "jobTitle": "Programmer",
+        "sameAs": [
+            "https://www.linkedin.com/in/mateusz-stompor/",
+            "https://github.com/mateuszstompor",
+            "https://medium.com/@mateusz.stompor",
+            "https://www.facebook.com/mstompor",
+            "https://www.instagram.com/mateusz.stompor"
+        ]
+        }
+        </script>
+    </head>
+<body>
+
+  <header>
+    <div class="brand">Your Name</div>
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+      <a href="#cv" id="cv-link">Resume</a>
+    </nav>
+  </header>
+
+  <!-- Hero Parallax -->
+  <section class="parallax" data-speed="0.36" aria-hidden="false">
+    <div class="bg" style="background-image:url('assets/abc.jpg');"></div>
+    <div class="inner" role="banner">
+      <h1>Your Name — Designer & Developer</h1>
+      <p>Building delightful interfaces and meaningful experiences. Based in City, Country.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="content" id="about">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
+        <h2 style="margin:0;">About Me</h2>
+        <div style="color:var(--muted); font-size:0.95rem;">Available for freelance & full-time work</div>
+      </div>
+
+      <div class="about" aria-labelledby="about">
+        <aside class="profile" aria-label="Profile">
+          <img src="https://images.unsplash.com/photo-1531123414780-f0b495fd5b17?q=80&w=800&auto=format&fit=crop" alt="Portrait">
+          <h3>Your Name</h3>
+          <p>Product designer & frontend developer</p>
+
+          <div class="cv-actions">
+            <a class="btn" id="download-cv" href="resume.pdf" target="_blank" rel="noopener" download>Download CV</a>
+            <a class="btn secondary" id="view-cv" href="resume.pdf" target="_blank" rel="noopener">View CV</a>
+          </div>
+
+          <div style="margin-top:0.9rem; color:var(--muted); font-size:0.9rem;">Contact: <a href="mailto:you@example.com" style="color:var(--accent) ;text-decoration:none;">you@example.com</a></div>
+        </aside>
+
+        <div class="bio">
+          <h3 style="margin-top:0; margin-bottom:0.25rem;">Hi — I'm Your Name</h3>
+          <p style="color:var(--muted); margin-top:0.4rem;">I design and build modern web applications with a focus on user-centered UI, performance and accessibility. I enjoy clean visual design, animation and solving product challenges end-to-end.</p>
+
+          <div style="margin-top:1rem;">
+            <strong style="color:var(--muted);">What I do</strong>
+            <ul style="color:var(--muted); margin-top:0.5rem">
+              <li>Product & UI design</li>
+              <li>Frontend development (HTML/CSS/JS/React/Vue)</li>
+              <li>Motion & interaction design</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:1rem;">
+            <strong style="color:var(--muted);">Skills</strong>
+            <div class="skills" aria-hidden="false">
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">React</span>
+              <span class="skill">Figma</span>
+              <span class="skill">Accessibility</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="parallax" data-speed="0.18" style="height:40vh; min-height:240px;">
+      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'); filter:brightness(0.5);"></div>
+      <div class="inner">
+        <h1>Selected Work</h1>
+        <p>Recent projects and case studies</p>
+      </div>
+    </section>
+
+    <section class="content" id="portfolio" aria-labelledby="portfolio">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
+        <h2 style="margin:0;">Portfolio</h2>
+        <div style="color:var(--muted); font-size:0.95rem;">Click an item to view</div>
+      </div>
+
+      <div class="gallery-grid" id="gallery">
+        <!-- Replace images and titles with your work -->
+        <div class="tile" data-index="0" tabindex="0" role="button" aria-label="Open project One">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="Project One">
+          <div class="meta">Project One</div>
+        </div>
+
+        <div class="tile" data-index="1" tabindex="0" role="button" aria-label="Open project Two">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Project Two">
+          <div class="meta">Project Two</div>
+        </div>
+
+        <div class="tile" data-index="2" tabindex="0" role="button" aria-label="Open project Three">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Project Three">
+          <div class="meta">Project Three</div>
+        </div>
+
+        <div class="tile" data-index="3" tabindex="0" role="button" aria-label="Open project Four">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Project Four">
+          <div class="meta">Project Four</div>
+        </div>
+
+        <div class="tile" data-index="4" tabindex="0" role="button" aria-label="Open project Five">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop" alt="Project Five">
+          <div class="meta">Project Five</div>
+        </div>
+
+        <div class="tile" data-index="5" tabindex="0" role="button" aria-label="Open project Six">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Project Six">
+          <div class="meta">Project Six</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project preview">
+      <div class="lb-inner" role="document">
+        <div class="lb-img" id="lb-img">
+          <img src="" alt="" id="lb-image">
+        </div>
+        <aside class="lb-side">
+          <div id="lb-title" style="color:var(--text); font-weight:700; font-size:1.05rem">Project Title</div>
+          <div id="lb-desc" style="color:var(--muted)">Short project description goes here.</div>
+          <div class="lb-controls">
+            <button class="icon-btn" id="prev" title="Previous (←)">◀</button>
+            <button class="icon-btn" id="next" title="Next (→)">▶</button>
+            <button class="icon-btn" id="close" title="Close (Esc)">✕</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <section class="content" id="contact" aria-labelledby="contact">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
+        <h2 style="margin:0;">Contact</h2>
+        <div style="color:var(--muted); font-size:0.95rem;">Let's talk about your project</div>
+      </div>
+
+      <div class="contact">
+        <form id="contact-form" novalidate>
+          <div style="display:flex; gap:0.75rem;">
+            <div style="flex:1">
+              <label for="name">Name</label>
+              <input id="name" name="name" required placeholder="Your name">
+            </div>
+            <div style="width:220px">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div style="margin-top:0.8rem;">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+          </div>
+
+          <div class="form-foot">
+            <button type="submit" class="btn">Send Message</button>
+            <div class="hint" id="form-hint">Or email me at <a href="mailto:you@example.com" style="color:var(--accent); text-decoration:none;">you@example.com</a></div>
+          </div>
+
+          <div id="form-msg" style="margin-top:0.6rem; color:var(--accent); display:none;"></div>
+        </form>
+
+        <aside style="background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015)); border-radius:12px; padding:1.2rem; border:1px solid rgba(255,255,255,0.03); box-shadow: 0 8px 30px var(--shadow);">
+          <h4 style="margin:0 0 0.5rem 0;">Availability</h4>
+          <p style="color:var(--muted); margin-top:0;">Open to remote and hybrid opportunities. Available for contract and full-time roles.</p>
+
+          <div style="margin-top:1rem;">
+            <strong style="color:var(--muted)">Quick links</strong>
+            <ul style="color:var(--muted); margin-top:0.5rem">
+              <li><a href="#portfolio" style="color:var(--accent); text-decoration:none;">See portfolio</a></li>
+              <li><a href="#cv" id="cv-ref" style="color:var(--accent); text-decoration:none;">Resume</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © Your Name — Built with care. Replace the content with your own info & assets.
+  </footer>
+
+  <script>
+    (function(){
+      /* -------- Parallax -------- */
+      const parallaxSections = Array.from(document.querySelectorAll('.parallax'));
+      const isDisabled = () => window.innerWidth < 768;
+      const items = parallaxSections.map(section => {
+        const bg = section.querySelector('.bg');
+        const speed = parseFloat(section.dataset.speed) || 0.5;
+        return { section, bg, speed };
+      });
+      let ticking = false;
+      function updateParallax(){
+        ticking = false;
+        if (isDisabled()){
+          items.forEach(it => it.bg.style.transform = 'translate3d(0,0,0)');
+          return;
+        }
+        for (const it of items){
+          const rect = it.section.getBoundingClientRect();
+          const y = rect.top * it.speed;
+          it.bg.style.transform = `translate3d(0, ${y}px, 0)`;
+        }
+      }
+      function onScroll(){ if(!ticking){requestAnimationFrame(updateParallax); ticking = true;} }
+      updateParallax();
+      window.addEventListener('scroll', onScroll, {passive:true});
+      window.addEventListener('resize', onScroll, {passive:true});
+
+      /* -------- Lightbox/Gallery -------- */
+      const gallery = Array.from(document.querySelectorAll('.gallery-grid .tile'));
+      const lightbox = document.getElementById('lightbox');
+      const lbImage = document.getElementById('lb-image');
+      const lbTitle = document.getElementById('lb-title');
+      const lbDesc = document.getElementById('lb-desc');
+      let currentIndex = 0;
+
+      // simple metadata for each tile (replace titles/descriptions as needed)
+      const itemsMeta = gallery.map((el, idx) => {
+        const img = el.querySelector('img');
+        return {
+          src: img.src,
+          alt: img.alt || `Project ${idx+1}`,
+          title: el.querySelector('.meta')?.textContent || `Project ${idx+1}`,
+          desc: 'Short description of the project. Replace with your own text.'
+        };
+      });
+
+      function openLightbox(index){
+        currentIndex = index;
+        const meta = itemsMeta[index];
+        lbImage.src = meta.src;
+        lbImage.alt = meta.alt;
+        lbTitle.textContent = meta.title;
+        lbDesc.textContent = meta.desc;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden','false');
+        // trap focus:
+        lightbox.focus();
+      }
+      function closeLightbox(){
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden','true');
+        lbImage.src = '';
+      }
+      function showNext(){
+        currentIndex = (currentIndex + 1) % itemsMeta.length;
+        openLightbox(currentIndex);
+      }
+      function showPrev(){
+        currentIndex = (currentIndex - 1 + itemsMeta.length) % itemsMeta.length;
+        openLightbox(currentIndex);
+      }
+
+      gallery.forEach((tile, i) => {
+        tile.addEventListener('click', () => openLightbox(i));
+        tile.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); } });
+      });
+
+      document.getElementById('close').addEventListener('click', closeLightbox);
+      document.getElementById('next').addEventListener('click', showNext);
+      document.getElementById('prev').addEventListener('click', showPrev);
+
+      // Close when clicking backdrop
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      // Keyboard navigation
+      window.addEventListener('keydown', (e) => {
+        if (lightbox.classList.contains('open')) {
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowRight') showNext();
+          if (e.key === 'ArrowLeft') showPrev();
+        }
+      });
+
+      /* -------- Contact Form (mock) -------- */
+      const form = document.getElementById('contact-form');
+      const formMsg = document.getElementById('form-msg');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        formMsg.style.display = 'none';
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const message = form.message.value.trim();
+        if (!name || !email || !message) {
+          showFormMessage('Please fill out all fields.', true);
+          return;
+        }
+        if (!validateEmail(email)){
+          showFormMessage('Please enter a valid email address.', true);
+          return;
+        }
+        // Mock send: display success message. Replace with real API call if needed.
+        showFormMessage('Thanks! Your message was sent (mock). I will get back to you soon.');
+        form.reset();
+      });
+      function showFormMessage(text, isError){
+        formMsg.style.display = 'block';
+        formMsg.style.color = isError ? '#ff7b7b' : 'var(--accent)';
+        formMsg.textContent = text;
+        setTimeout(()=>{ formMsg.style.display = 'none'; }, 6000);
+      }
+      function validateEmail(email){
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      /* -------- CV links: notify user to replace file if missing -------- */
+      const cvLinks = [document.getElementById('download-cv'), document.getElementById('view-cv'), document.getElementById('cv-ref'), document.getElementById('cv-link')];
+      cvLinks.forEach(a => {
+        if (!a) return;
+        // If the href is the demo resume path (resume.pdf) show tooltip hint or intercept
+        const href = a.getAttribute('href') || '';
+        if (href.includes('resume.pdf')) {
+          a.addEventListener('click', (e) => {
+            // allow actual navigation, but show a small notice
+            // (You can remove this if you add a real resume file)
+            console.info('Resume link clicked. Replace "resume.pdf" with your actual resume file.');
+          });
+        }
+      });
+
+      // small accessibility: focus lightbox on open
+      lightbox.tabIndex = -1;
+
+    })();
+  </script>
+</body>
+</html>
