@@ -143,4 +143,65 @@
     // small accessibility: focus lightbox on open
     lightbox.tabIndex = -1;
 
+    const textEl = document.getElementById('text');
+    const cursor = document.getElementById('cursor');
+    const thinking = document.getElementById('thinking');
+
+    const first = "Where bytes meet beauty — building from the silicon upward.";
+    const second = "Designing light, form, and function in motion.";
+    const third = "Building experiences that feel native to Apple’s soul. Based in Cracow, Poland.";
+    const TYPING_SPEED = 70;
+
+    function wait(ms){return new Promise(r=>setTimeout(r,ms))}
+
+    function setCursor(state){
+      cursor.classList.remove('active','delete','idle');
+      if(state) cursor.classList.add(state);
+    }
+
+    async function typeText(text){
+      setCursor('active');
+      for(const ch of text){
+        const span = document.createElement('span');
+        span.textContent = ch;
+        span.className = 'char new';
+        textEl.appendChild(span);
+        requestAnimationFrame(()=>span.classList.remove('new'));
+        await wait(TYPING_SPEED + Math.random()*60);
+      }
+      setCursor('idle');
+    }
+
+    async function backspace(count){
+      setCursor('delete');
+      for(let i=0;i<count;i++){
+        const last = textEl.lastChild;
+        if(last){
+          last.style.opacity = '0';
+          last.style.transform = 'scale(0.6)';
+          await wait(80);
+          last.remove();
+        }
+      }
+      setCursor('idle');
+    }
+
+    async function animate(){
+      await typeText(first);
+      await wait(500);
+      thinking.style.visibility = 'visible';
+      await wait(1000);
+      thinking.style.visibility = 'hidden';
+      await backspace(first.length);
+      await wait(400);
+      await typeText(second);
+      thinking.style.visibility = 'visible';
+      await wait(1000);
+      thinking.style.visibility = 'hidden';
+      await backspace(first.length);
+      await wait(400);
+      await typeText(third);
+    }
+
+    animate();
 })();
