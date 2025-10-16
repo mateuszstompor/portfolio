@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>John Doe – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">John Doe</a>
+
+      <!-- Navigation -->
+      <nav id="main-nav" class="navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- CV button -->
+      <a href="cv.pdf" class="btn btn-cv">Download CV</a>
+
+      <!-- Hamburger for mobile -->
+      <button id="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Main Content ===== -->
+  <main>
+
+    <!-- Hero section -->
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <h1>Hi, I'm John Doe</h1>
+        <p>Full Stack Developer | Open Source Enthusiast | Coffee Lover</p>
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</p>
+        <h3>Skills</h3>
+        <ul class="skills-list">
+          <li>JavaScript / TypeScript</li>
+          <li>React / Next.js</li>
+          <li>Node.js / Express</li>
+          <li>Python / Django</li>
+          <li>SQL & NoSQL databases</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projects section -->
+    <section id="projects" class="section projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="project-grid">
+
+          <!-- Project card 1 -->
+          <article class="project-card">
+            <img src="https://via.placeholder.com/400x250" alt="Project 1">
+            <h3>Project One</h3>
+            <p>A brief description of what this project does.</p>
+            <a href="#" class="btn btn-primary">View on GitHub</a>
+          </article>
+
+          <!-- Project card 2 -->
+          <article class="project-card">
+            <img src="https://via.placeholder.com/400x250" alt="Project 2">
+            <h3>Project Two</h3>
+            <p>A brief description of what this project does.</p>
+            <a href="#" class="btn btn-primary">View on GitHub</a>
+          </article>
+
+          <!-- Project card 3 -->
+          <article class="project-card">
+            <img src="https://via.placeholder.com/400x250" alt="Project 3">
+            <h3>Project Three</h3>
+            <p>A brief description of what this project does.</p>
+            <a href="#" class="btn btn-primary">View on GitHub</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>If you'd like to get in touch, feel free to drop me an email at <a href="mailto:john.doe@example.com">john.doe@example.com</a>.</p>
+        <p>Or connect with me on social media:</p>
+        <ul class="social-links">
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 John Doe. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script src="script.js"></script>
+</body>
+</html>
