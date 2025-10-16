@@ -23,14 +23,6 @@ This repository includes:
 
 The site is automatically deployed to the hosting server using GitHub Actions and FTP. Secrets like credentials are managed via GitHub Secrets.
 
-## 🗺️ Sitemap
-
-To generate the sitemap, run:
-```bash
-npm install sitemap
-node generate-sitemap.js
-```
-
 ## 📄 License
 
-This project is for personal use. Please do not reuse without permission.
+This project is for personal use. Please do not reuse without permission. Copying of this code is restricted and requires explicit permission.
