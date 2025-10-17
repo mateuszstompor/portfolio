@@ -42,10 +42,15 @@
     </nav>
   </header>
 
-  <!-- Hero Parallax -->
-  <section class="parallax" data-speed="0.36" aria-hidden="false">
-    <div class="bg" style="background-image:url('assets/abc.jpg');"></div>
-    <div class="inner" role="banner">
+<!-- Portfolio -->
+    <section class="parallax" data-speed="0.18" style="height:40vh; min-height:240px; position:relative; overflow:hidden;">
+      <video class="bg" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.5); z-index:-1;">
+        <source src="./assets/videos/1.mov" type="video/mp4">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+            alt="Background" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.5);">
+      </video>
+      <div class="inner" role="banner">
       <h1>Mateusz Stompór - Software Engineer</h1>
       <p>
         <div>
@@ -54,7 +59,13 @@
         </div>
       </p>
     </div>
-  </section>
+    </section>
+  
+  <!-- Hero Parallax -->
+  <!-- <section class="parallax" data-speed="0.36" aria-hidden="false">
+    <div class="bg" style="background-image:url('assets/abc.jpg');"></div>
+    
+  </section> -->
 
   <main>
     <section class="content" id="about">
@@ -62,22 +73,15 @@
         <h2 style="margin:0;">About Me</h2>
         <div style="color:var(--muted); font-size:0.95rem;">Available for freelance & full-time work</div>
       </div>
-
-      <div class="about" aria-labelledby="about">
-        <aside class="profile" aria-label="Profile">
-          <img src="./assets/img/about.jpg" alt="Portrait">
-          <h3>Your Name</h3>
-          <p>Product designer & frontend developer</p>
-
-          <div class="cv-actions">
-            <a class="btn" id="download-cv" href="resume.pdf" target="_blank" rel="noopener" download>Download CV</a>
-            <a class="btn secondary" id="view-cv" href="resume.pdf" target="_blank" rel="noopener">View CV</a>
+      <div class="about__container bd-grid" aria-labelledby="about">
+        <div>
+            <div class="profile" aria-label="Profile">
+            <img src="./assets/img/about.jpg" alt="Portrait">
           </div>
+        </div>
 
-          <div style="margin-top:0.9rem; color:var(--muted); font-size:0.9rem;">Contact: <a href="mailto:you@example.com" style="color:var(--accent) ;text-decoration:none;">you@example.com</a></div>
-        </aside>
-
-        <div class="bio">
+        <div>
+          <div class="bio">
           <h3 style="margin-top:0; margin-bottom:0.25rem;">Who am I?</h3>
           <p style="color:var(--muted); margin-top:0.4rem;">A dedicated programmer with a focus on developing plugins for Final Cut Pro. With a strong background in C++, Objective-C, and Apple’s Metal framework, I specialize in creating efficient, high-performance tools for video editing workflows. My development approach often involves Manual Reference Counting (MRC) to optimize memory management, and I’m passionate about solving complex problems that push the boundaries of creativity in media production. Outside of coding, I enjoy the world of stand-up comedy, which keeps me grounded and inspired.</p>
 
@@ -106,13 +110,33 @@
     </section>
 
     <!-- Portfolio -->
-    <section class="parallax" data-speed="0.18" style="height:40vh; min-height:240px;">
-      <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop'); filter:brightness(0.5);"></div>
-      <div class="inner">
+    <section class="parallax" data-speed="0.18" style="height:40vh; min-height:240px; position:relative; overflow:hidden;">
+      <video class="bg" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.5); z-index:-1;">
+        <source src="./assets/videos/2.mov" type="video/mp4">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+            alt="Background" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.5);">
+      </video>
+      <div class="inner" style="position:relative; z-index:1; color:white; text-align:center; top:50%; transform:translateY(-50%);">
         <h1>Selected Work</h1>
         <p>Recent projects and case studies</p>
       </div>
     </section>
+
+    <!-- Portfolio -->
+    <!-- <section class="parallax" data-speed="0.18" style="height:40vh; min-height:240px; position:relative; overflow:hidden;">
+      <video class="bg" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.5); z-index:-1;">
+        <source src="./your-video3.mp4" type="video/mp4">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+            alt="Background" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.5);">
+      </video>
+      <div class="inner" style="position:relative; z-index:1; color:white; text-align:center; top:50%; transform:translateY(-50%);">
+        <h1>Selected Work</h1>
+        <p>Recent projects and case studies</p>
+      </div>
+    </section> -->
+
 
     <section class="content" id="portfolio" aria-labelledby="portfolio">
       <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
@@ -123,37 +147,50 @@
       <div class="gallery-grid" id="gallery">
         <!-- Replace images and titles with your work -->
         <div class="tile" data-index="0" tabindex="0" role="button" aria-label="Open project One">
-          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="Project One">
+          <div class="tinted">
+          <img src="assets/img/work6.jpg" alt="Project One">
+          </div>
           <div class="meta">Project One</div>
         </div>
 
         <div class="tile" data-index="1" tabindex="0" role="button" aria-label="Open project Two">
-          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Project Two">
+          <div class="tinted">
+          <img src="assets/img/work2.jpg" alt="Project Two">
+          </div>
           <div class="meta">Project Two</div>
         </div>
 
         <div class="tile" data-index="2" tabindex="0" role="button" aria-label="Open project Three">
-          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Project Three">
+          <div class="tinted">
+          <img src="assets/img/work3.jpg" alt="Project Three">
+          </div>
           <div class="meta">Project Three</div>
         </div>
 
         <div class="tile" data-index="3" tabindex="0" role="button" aria-label="Open project Four">
-          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Project Four">
+          <div class="tinted">
+            <img src="assets/img/work5.jpg" alt="Project Four">
+          </div>
           <div class="meta">Project Four</div>
         </div>
 
         <div class="tile" data-index="4" tabindex="0" role="button" aria-label="Open project Five">
-          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop" alt="Project Five">
+          <div class="tinted">
+            <img src="assets/img/work8.jpg" alt="Project Five">
+          </div>
           <div class="meta">Project Five</div>
         </div>
 
         <div class="tile" data-index="5" tabindex="0" role="button" aria-label="Open project Six">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Project Six">
+          <div class="tinted">
+            <img src="assets/img/work7.jpg" alt="Project Six">
+          </div>
           <div class="meta">Project Six</div>
         </div>
       </div>
     </section>
 
+    
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project preview">
       <div class="lb-inner" role="document">
