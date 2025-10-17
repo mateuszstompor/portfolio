@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
+  <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Explore Mateusz Stompór's personal portfolio showcasing top projects, programming expertise, and skills in Final Cut Pro plugin development, Apple Metal, and Objective-C.">
@@ -30,260 +30,224 @@
         }
         </script>
     </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a class="nav__logo" href="#home">Arctic Codes</a>
-                </div>
+<body>
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="#work" class="nav__link">Experience</a></li>
-                    </ul>
-                </div>
+  <header>
+    <div class="brand">Arctic Codes</div>
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+      <a href="#cv" id="cv-link">Resume</a>
+    </nav>
+  </header>
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
+<!-- Portfolio -->
+    <section class="parallax" data-speed="0.18" style="height:40vh; min-height:240px; position:relative; overflow:hidden;">
+      <video class="bg" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.5); z-index:-1;">
+        <source src="./assets/videos/1.mov" type="video/mp4">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+            alt="Background" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.5);">
+      </video>
+      <div class="inner" role="banner">
+      <h1>Mateusz Stompór - Software Engineer</h1>
+      <p>
+        <div>
+          <span id="text"></span><span class="cursor" id="cursor"></span>
+          <div class="thinking" id="thinking"><span>.</span><span>.</span><span>.</span></div>
+        </div>
+      </p>
+    </div>
+    </section>
+  
+  <!-- Hero Parallax -->
+  <!-- <section class="parallax" data-speed="0.36" aria-hidden="false">
+    <div class="bg" style="background-image:url('assets/abc.jpg');"></div>
+    
+  </section> -->
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home bd-grid" id="home">
-                <div class="home__data">
-                    <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Mateusz</span>,<br>A programmer<span class="cursor"></span></h1>
-                </div>
+  <main>
+    <section class="content" id="about">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
+        <h2 style="margin:0;">About Me</h2>
+        <div style="color:var(--muted); font-size:0.95rem;">Available for freelance & full-time work</div>
+      </div>
+      <div class="about__container bd-grid" aria-labelledby="about">
+        <div>
+            <div class="profile" aria-label="Profile">
+            <img src="./assets/img/about.jpg" alt="Portrait">
+          </div>
+        </div>
 
-                <div class="home__social">
-                    <a href="https://www.linkedin.com/in/mateusz-stompor/" aria-label="Link to LinkedIn Account" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                    <a href="https://github.com/mateuszstompor" aria-label="Link to GitHub Account" class="home__social-icon"><i class='bx bxl-github'></i></a>
-                </div>
-            </section>
+        <div>
+          <div class="bio">
+          <h3 style="margin-top:0; margin-bottom:0.25rem;">Who am I?</h3>
+          <p style="color:var(--muted); margin-top:0.4rem;">A dedicated programmer with a focus on developing plugins for Final Cut Pro. With a strong background in C++, Objective-C, and Apple’s Metal framework, I specialize in creating efficient, high-performance tools for video editing workflows. My development approach often involves Manual Reference Counting (MRC) to optimize memory management, and I’m passionate about solving complex problems that push the boundaries of creativity in media production. Outside of coding, I enjoy the world of stand-up comedy, which keeps me grounded and inspired.</p>
 
-            <!--===== ABOUT =====-->
-            <section class="about section" id="about">
-                <h2 class="section-title">About</h2>
+          <div style="margin-top:1rem;">
+            <strong style="color:var(--muted);">What I do</strong>
+            <ul style="color:var(--muted); margin-top:0.5rem">
+              <li>Product & UI design</li>
+              <li>Frontend development (HTML/CSS/JS/React/Vue)</li>
+              <li>Motion & interaction design</li>
+            </ul>
+          </div>
 
-                <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="assets/img/about.jpg" alt="Portrait of Mateusz Stompór">
-                    </div>
-                    
-                    <div>
-                        <h2 class="about__subtitle">Who am I?</h2>
-                        <p class="about__text">
-                            A dedicated programmer with a focus on developing plugins for Final Cut Pro. With a strong background in C++, Objective-C, and Apple’s Metal framework, I specialize in creating efficient, high-performance tools for video editing workflows. My development approach often involves Manual Reference Counting (MRC) to optimize memory management, and I’m passionate about solving complex problems that push the boundaries of creativity in media production. Outside of coding, I enjoy the world of stand-up comedy, which keeps me grounded and inspired.
-                        </p>           
-                    </div>                                   
-                </div>
-            </section>
-
-            <!--===== SKILLS =====-->
-            <section class="skills section" id="skills">
-                <h2 class="section-title">Skills</h2>
-
-                <div class="skills__container bd-grid">          
-                    <div>
-                        <h2 class="skills__subtitle">Plugin Development for Final Cut Pro</h2>
-                        <p class="skills__text">
-                            Experienced in creating high-performance, customized plugins for Final Cut Pro using Apple’s ecosystem of development tools and technologies. I design, develop, and optimize plugins that integrate seamlessly with Final Cut Pro, enhancing workflow and providing users with tailored editing solutions.
-                        </p>
-                        <h2 class="skills__subtitle">Apple Metal & Graphics Programming</h2>
-                        <p class="skills__text">
-                            Proficient in utilizing Apple Metal for GPU-accelerated rendering and computational tasks. With a deep understanding of Metal's framework, I create highly optimized graphics and performance-driven applications, focusing on maximizing the power of modern Mac hardware.
-                        </p>
-                        <h2 class="skills__subtitle">Objective-C & C++ Development</h2>
-                        <p class="skills__text">
-                            Expert in Objective-C and C++ programming, with a strong focus on building efficient, reusable, and maintainable code. Skilled in low-level memory management and manual reference counting (MRC) to achieve maximum performance for complex applications, particularly in the macOS environment.
-                        </p>
-                        <h2 class="skills__subtitle">Performance Optimization</h2>
-                        <p class="skills__text">
-                            Specialized in profiling and optimizing code for both CPU and GPU performance. I focus on reducing memory footprint, increasing frame rates, and minimizing latency, ensuring smooth user experiences, even when handling large file sizes and demanding workflows.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <div>              
-                        <img src="assets/img/work1.jpg" alt="" class="skills__img2">                        
-                    </div>
-
-                    <div>              
-                        <img src="assets/img/work9.jpg" alt="" class="skills__img">                        
-                    </div>
-                    </div>
-                </div>
-            </section>
-
-            <!--===== WORK =====-->
-            <section class="work section" id="work">
-                <h2 class="section-title">Experience</h2>
-
-                <div class="work__container bd-grid">
-                    <div class="work__item">
-                        <div class="work__img">
-                            <a href="https://github.com/P0rc3lain/Engine" aria-label="Link to P0rc3lain Engine">
-                                <img src="assets/img/work6.jpg" alt="P0rc3lain Engine">
-                            </a>
-                        </div>
-                        <a href="https://github.com/P0rc3lain/Engine" class="link-inherit" aria-label="Link to P0rc3lain Engine">
-                            <p class="work__img_subtitle">
-                                P0rc3lain Engine
-                                <i class='bx bx-link'></i>
-                            </p>
-                        </a>
-                    </div>
-                    <div class="work__item">
-                        <div class="work__img">
-                            <a href="https://github.com/mateuszstompor/FlappyBird" aria-label="Link to a clone of Flappy Bird">
-                                <img src="assets/img/work2.jpg" alt="Image preview of FlappyBird clone app">
-                            </a>
-                        </div>
-                        <a href="https://github.com/mateuszstompor/FlappyBird" class="link-inherit" aria-label="Link to a clone of Flappy Bird">
-                            <p class="work__img_subtitle">
-                                Flappy Bird Clone
-                                <i class='bx bx-link'></i>
-                            </p>
-                        </a>
-                    </div>
-                    <div class="work__item">
-                        <div class="work__img">
-                            <a href="https://github.com/P0rc3lain/Chess" aria-label="Chess game built on top of P0rc3lain Engine">
-                                <img src="assets/img/work3.jpg" alt="">
-                            </a>
-                        </div>
-                        <a href="https://github.com/P0rc3lain/Chess" class="link-inherit" aria-label="Chess game built on top of P0rc3lain Engine">
-                            <p class="work__img_subtitle">
-                                A Chess game
-                                <i class='bx bx-link'></i>
-                            </p>
-                        </a>
-                    </div>
-                    <div class="work__item">
-                        <div class="work__img">
-                            <a href="https://github.com/mateuszstompor/mine" aria-label="Path tracing engine">
-                                <img src="assets/img/work5.jpg" alt="">
-                            </a>
-                        </div>
-                        <a href="https://github.com/mateuszstompor/mine" class="link-inherit" aria-label="Path tracing engine">
-                            <p class="work__img_subtitle">
-                                CPU-based path tracer
-                                <i class='bx bx-link'></i>
-                            </p>
-                        </a>
-                    </div>
-                    <div class="work__item">
-                        <div class="work__img">
-                            <a href="https://github.com/mateuszstompor/ngin" aria-label="OpenGL-based Graphics Engine">
-                                <img src="assets/img/work8.jpg" alt="">
-                            </a>
-                        </div>
-                        <a href="https://github.com/mateuszstompor/ngin" class="link-inherit" aria-label="OpenGL-based Graphics Engine">
-                            <p class="work__img_subtitle">
-                                Graphics engine, #2 Attempt
-                                <i class='bx bx-link'></i>
-                            </p>
-                        </a>
-                    </div>
-                    <div class="work__item">
-                        <div class="work__img">
-                            <a href="https://github.com/mateuszstompor/MSEngine" aria-label="Objective-C Graphics engine">
-                                <img src="assets/img/work7.jpg" alt="">
-                            </a>
-                        </div>
-                        <a href="https://github.com/mateuszstompor/MSEngine" class="link-inherit" aria-label="Objective-C Graphics engine">
-                            <p class="work__img_subtitle">
-                                Graphics engine, #1 Attempt
-                                <i class='bx bx-link'></i>
-                            </p>
-                        </a>
-                    </div>
-                </div>
-            </section>
-            
-            <!--===== MORE PROJECTS =====-->
-            <h2 class="work__subtitle">You may also like...</h2>
-            <div class="work_more__container bd-grid">          
-                <div>
-                    <!-- 1 -->
-                    <div>
-                        <a href="https://github.com/mateuszstompor/AsyncTCP" 
-                           class="link-inherit"
-                           aria-label="Link to an asynchronous socket library">
-                            <p class="work__text">
-                                AsyncTCP
-                                <i class='bx bx-link'></i>
-                            </p>
-                        </a>
-                        <p class="work__text">
-                            A tiny library easing TCP connections handling. 
-                            Provides a set of classes to connect a remote server as a client and is able to host a server on its own.
-                            Asynchronous and thread-safe for maximum user-friendliness.
-                        </p>
-                    </div>
-                    <!-- 2 -->
-                    <div>
-                        <a href="https://github.com/mateuszstompor/Linked-List-x86-64-ASM" 
-                           class="link-inherit"
-                           aria-label="Link to an implementation of linked list written in assembly">
-                            <p class="work__text">
-                                Linked-List x86 ASM
-                                <i class='bx bx-link'></i>
-                            </p>
-                        </a>
-                        <p class="work__text">
-                            Well-known and a simple dynamic data structure.
-                            In contrary to other available implementations this one is written in x86-64 assembly with a C-compatible interface.
-                        </p>
-                    </div>
-                    <!-- 3 -->
-                    <div>
-                        <a href="https://github.com/mateuszstompor/rhce-ex294-exam"
-                           class="link-inherit"
-                           aria-label="Link to materials that prepare for EX294 Red Hat exam">
-                            <p class="work__text">
-                                RHCE preparations
-                                <i class='bx bx-link'></i>
-                            </p>
-                        </a>
-                        <p class="work__text">
-                            A repository that has reached a broad audience. 
-                            I created it while preparing for an exam. 
-                            It contains questions presented as exercises, along with their corresponding answers. 
-                            The repository requires a specific environment, which I also developed.
-                        </p>
-                    </div>
-                </div>
+          <div style="margin-top:1rem;">
+            <strong style="color:var(--muted);">Skills</strong>
+            <div class="skills" aria-hidden="false">
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">React</span>
+              <span class="skill">Figma</span>
+              <span class="skill">Accessibility</span>
             </div>
-            <h2 class="cv__subtitle">Professional experience</h2>
-            <div class="experience__container bd-grid">          
-                <p class="experience__text">
-                    If you consider cooperation you may have a look at my CV, where I have gathered all the information about my education, experience, and most challenging projects.
-                </p>
-                <a target="_blank" href="assets/Mateusz Stompor - CV.pdf" aria-label="Link to Curriculum Vitae" class="button__download">Open in a new tab</a>
-            </div>
-        </main>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!--===== FOOTER =====-->
-        <footer class="footer">
-            <p class="footer__title">Arctic Codes</p>
-            <div class="footer__social">
-                <a href="https://www.facebook.com/mstompor" aria-label="Link to Facebook Account" class="footer__icon"><i class='bx bxl-facebook'></i></a>
-                <a href="https://www.instagram.com/mateusz.stompor" aria-label="Link to Instagram Account" class="footer__icon"><i class='bx bxl-instagram'></i></a>
-                <a href="https://medium.com/@mateusz.stompor" aria-label="Link to Medium Account" class="footer__icon"><i class='bx bxl-medium'></i></a>
-            </div>
-            <p class="footer__copy">&#169; Mateusz Stompór. All rights reserved.</p>
-        </footer>
+    <!-- Portfolio -->
+    <section class="parallax" data-speed="0.18" style="height:40vh; min-height:240px; position:relative; overflow:hidden;">
+      <video class="bg" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.5); z-index:-1;">
+        <source src="./assets/videos/2.mov" type="video/mp4">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+            alt="Background" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.5);">
+      </video>
+      <div class="inner" style="position:relative; z-index:1; color:white; text-align:center; top:50%; transform:translateY(-50%);">
+        <h1>Selected Work</h1>
+        <p>Recent projects and case studies</p>
+      </div>
+    </section>
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="assets/js/libs/scrollreveal"></script>
+    <section class="content" id="portfolio" aria-labelledby="portfolio">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
+        <h2 style="margin:0;">Rendering</h2>
+        <div style="color:var(--muted); font-size:0.95rem;">Click an item to view</div>
+      </div>
 
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
-    </body>
+      <div class="gallery-grid" id="gallery">
+        <!-- Replace images and titles with your work -->
+        <div class="tile" data-index="0" tabindex="0" role="button" aria-label="Open project One">
+          <img src="assets/img/work6.jpg" alt="Project One">
+          <div class="meta">Project One</div>
+        </div>
+
+        <div class="tile" data-index="1" tabindex="0" role="button" aria-label="Open project Two">
+          <img src="assets/img/work2.jpg" alt="Project Two">
+          <div class="meta">Project Two</div>
+        </div>
+
+        <div class="tile" data-index="2" tabindex="0" role="button" aria-label="Open project Three">
+          <img src="assets/img/work3.jpg" alt="Project Three">
+          <div class="meta">Project Three</div>
+        </div>
+
+        <div class="tile" data-index="3" tabindex="0" role="button" aria-label="Open project Four">
+            <img src="assets/img/work5.jpg" alt="Project Four">
+          <div class="meta">Project Four</div>
+        </div>
+
+        <div class="tile" data-index="4" tabindex="0" role="button" aria-label="Open project Five">
+            <img src="assets/img/work8.jpg" alt="Project Five">
+          <div class="meta">Project Five</div>
+        </div>
+
+        <div class="tile" data-index="5" tabindex="0" role="button" aria-label="Open project Six">
+            <img src="assets/img/work7.jpg" alt="Project Six">
+          <div class="meta">Project Six</div>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;padding-top: 2em;">
+        <h2 style="margin:0;">Other</h2>
+        <div style="color:var(--muted); font-size:0.95rem;">Click an item to view</div>
+      </div>
+
+      <div class="gallery-grid" id="gallery">
+        <!-- Replace images and titles with your work -->
+        <div class="tile" data-index="6" tabindex="0" role="button" aria-label="Open project Seven">
+            <img src="assets/img/work10.jpg" alt="Project Six">
+          <div class="meta">Project Seven</div>
+        </div>
+
+        <div class="tile" data-index="6" tabindex="0" role="button" aria-label="Open project Seven">
+            <img src="assets/img/work11.jpg" alt="Project Six">
+          <div class="meta">Project Seven</div>
+        </div>
+
+        <div class="tile" data-index="6" tabindex="0" role="button" aria-label="Open project Seven">
+            <img src="assets/img/work12.jpg" alt="Project Six">
+          <div class="meta">Project Seven</div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project preview">
+      <div class="lb-inner" role="document">
+        <div class="lb-img" id="lb-img">
+          <img src="" alt="" id="lb-image">
+        </div>
+        <aside class="lb-side">
+          <div id="lb-title" style="color:var(--text); font-weight:700; font-size:1.05rem">Project Title</div>
+          <div id="lb-desc" style="color:var(--muted)">Short project description goes here.</div>
+          <div class="lb-controls">
+            <button class="icon-btn" id="prev" title="Previous (←)">◀</button>
+            <button class="icon-btn" id="next" title="Next (→)">▶</button>
+            <button class="icon-btn" id="close" title="Close (Esc)">✕</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <section class="content" id="contact" aria-labelledby="contact">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
+        <h2 style="margin:0;">Contact</h2>
+        <div style="color:var(--muted); font-size:0.95rem;">Let's talk about your project</div>
+      </div>
+
+      <!-- <div class="contact"> -->
+        <form action="https://formspree.io/f/xzzjoaqz" method="POST">
+          <label>
+            Your email:
+            <input type="email" name="email" required placeholder="you@example.com">
+          </label>
+          
+          <div style="margin-top:0.8rem;">
+            <label>
+              Your message:
+              <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+            </label>
+          </div>
+          
+          <div class="form-foot">
+            <button type="submit" class="btn">Send Message</button>
+            <div class="hint" id="form-hint">Or email me at <a href="mailto:contact@arctic.codes" style="color:var(--accent); text-decoration:none;">contact@arctic.codes</a></div>
+          </div>
+
+          <div id="form-msg" style="margin-top:0.6rem; color:var(--accent); display:none;"></div>
+        </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer__social">
+        <a href="https://www.facebook.com/mstompor" aria-label="Link to Facebook Account" class="footer__icon"><i class='bx bxl-facebook'></i></a>
+        <a href="https://www.instagram.com/mateusz.stompor" aria-label="Link to Instagram Account" class="footer__icon"><i class='bx bxl-instagram'></i></a>
+        <a href="https://medium.com/@mateusz.stompor" aria-label="Link to Medium Account" class="footer__icon"><i class='bx bxl-medium'></i></a>
+        <a href="https://www.linkedin.com/in/mateusz-stompor/" aria-label="Link to LinkedIn Account" class="footer__icon"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://github.com/mateuszstompor" aria-label="Link to GitHub Account" class="footer__icon"><i class='bx bxl-github'></i></a>
+    </div>
+    <p class="footer__copy">&#169; Mateusz Stompór — Built with care. All rights reserved.</p>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
 </html>
