@@ -125,7 +125,7 @@
 
     <section class="content" id="portfolio" aria-labelledby="portfolio">
       <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
-        <h2 style="margin:0;">Portfolio</h2>
+        <h2 style="margin:0;">Rendering projects</h2>
         <div style="color:var(--muted); font-size:0.95rem;">Click an item to view</div>
       </div>
 
@@ -161,6 +161,29 @@
           <div class="meta">Project Six</div>
         </div>
       </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;padding-top: 2em;">
+        <h2 style="margin:0;">Other</h2>
+        <div style="color:var(--muted); font-size:0.95rem;">Click an item to view</div>
+      </div>
+
+      <div class="gallery-grid" id="gallery">
+        <!-- Replace images and titles with your work -->
+        <div class="tile" data-index="6" tabindex="0" role="button" aria-label="Open project Seven">
+            <img src="assets/img/work10.jpg" alt="Project Six">
+          <div class="meta">Project Seven</div>
+        </div>
+
+        <div class="tile" data-index="6" tabindex="0" role="button" aria-label="Open project Seven">
+            <img src="assets/img/work11.jpg" alt="Project Six">
+          <div class="meta">Project Seven</div>
+        </div>
+
+        <div class="tile" data-index="6" tabindex="0" role="button" aria-label="Open project Seven">
+            <img src="assets/img/work12.jpg" alt="Project Six">
+          <div class="meta">Project Seven</div>
+        </div>
+      </div>
     </section>
 
     
@@ -190,26 +213,22 @@
       </div>
 
       <div class="contact">
-        <form id="contact-form" novalidate>
-          <div style="display:flex; gap:0.75rem;">
-            <div style="flex:1">
-              <label for="name">Name</label>
-              <input id="name" name="name" required placeholder="Your name">
-            </div>
-            <div style="width:220px">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required placeholder="you@example.com">
-            </div>
-          </div>
-
+        <form action="https://formspree.io/f/xzzjoaqz" method="POST">
+          <label>
+            Your email:
+            <input type="email" name="email" required placeholder="you@example.com">
+          </label>
+          
           <div style="margin-top:0.8rem;">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+            <label>
+              Your message:
+              <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+            </label>
           </div>
-
+          
           <div class="form-foot">
             <button type="submit" class="btn">Send Message</button>
-            <div class="hint" id="form-hint">Or email me at <a href="mailto:you@example.com" style="color:var(--accent); text-decoration:none;">you@example.com</a></div>
+            <div class="hint" id="form-hint">Or email me at <a href="mailto:contact@arctic.codes" style="color:var(--accent); text-decoration:none;">contact@arctic.codes</a></div>
           </div>
 
           <div id="form-msg" style="margin-top:0.6rem; color:var(--accent); display:none;"></div>

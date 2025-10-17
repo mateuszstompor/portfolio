@@ -94,37 +94,6 @@
     }
     });
 
-    /* -------- Contact Form (mock) -------- */
-    const form = document.getElementById('contact-form');
-    const formMsg = document.getElementById('form-msg');
-    form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    formMsg.style.display = 'none';
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
-    if (!name || !email || !message) {
-        showFormMessage('Please fill out all fields.', true);
-        return;
-    }
-    if (!validateEmail(email)){
-        showFormMessage('Please enter a valid email address.', true);
-        return;
-    }
-    // Mock send: display success message. Replace with real API call if needed.
-    showFormMessage('Thanks! Your message was sent (mock). I will get back to you soon.');
-    form.reset();
-    });
-    function showFormMessage(text, isError){
-    formMsg.style.display = 'block';
-    formMsg.style.color = isError ? '#ff7b7b' : 'var(--accent)';
-    formMsg.textContent = text;
-    setTimeout(()=>{ formMsg.style.display = 'none'; }, 6000);
-    }
-    function validateEmail(email){
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
     /* -------- CV links: notify user to replace file if missing -------- */
     const cvLinks = [document.getElementById('download-cv'), document.getElementById('view-cv'), document.getElementById('cv-ref'), document.getElementById('cv-link')];
     cvLinks.forEach(a => {
