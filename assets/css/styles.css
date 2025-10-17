@@ -1,5 +1,6 @@
-:root{
+:root {
   --bg: #0b0f12;
+  --bg-greenish: #071015;
   --card: #0f1518;
   --muted: #9aa5ad;
   --accent: #5eead4;
@@ -12,12 +13,18 @@
   --mb-4: 2rem;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
+* {
+  box-sizing:border-box
+}
+
+html,body {
+  height:100%;
+  background-color: var(--bg);
+}
+
+body {
   margin:0;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:linear-gradient(180deg,var(--bg),#071015);
   color:var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -29,7 +36,6 @@ header{
   position:sticky;
   top:0;
   z-index:60;
-  background:linear-gradient(180deg, rgba(4,8,12,0.6), rgba(4,8,12,0.35));
   backdrop-filter: blur(6px);
   padding:0.6rem 1rem;
   border-bottom:1px solid rgba(255,255,255,0.03);
