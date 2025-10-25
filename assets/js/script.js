@@ -45,7 +45,9 @@
       src: img.src,
       alt: img.alt || `Project ${idx + 1}`,
       title: el.querySelector(".meta")?.textContent || `Project ${idx + 1}`,
-      desc: "Short description of the project. Replace with your own text.",
+      desc:
+        el.querySelector(".description")?.textContent ||
+        "Short description of the project. Replace with your own text.",
     };
   });
 
