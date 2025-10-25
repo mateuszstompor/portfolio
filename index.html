@@ -1,18 +1,24 @@
 <!doctype html>
 <html lang="en">
   <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Explore Mateusz Stompór's personal portfolio showcasing top projects, programming expertise, and skills in Final Cut Pro plugin development, Apple Metal, and Objective-C.">
-        <link rel="icon" href="assets/img/favicon.ico" type="image/ico">
-        <link rel="stylesheet" href="assets/css/styles.css?version=2">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore Mateusz Stompór's personal portfolio showcasing top projects, programming expertise, and skills in Final Cut Pro plugin development, Apple Metal, and Objective-C."
+    />
+    <link rel="icon" href="assets/img/favicon.ico" type="image/ico" />
+    <link rel="stylesheet" href="assets/css/styles.css?version=2" />
 
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
-        <title>Mateusz Stompór | Arctic Codes</title>
+    <title>Mateusz Stompór | Arctic Codes</title>
 
-        <script type="application/ld+json">
-        {
+    <script type="application/ld+json">
+      {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Mateusz Stompór",
@@ -20,231 +26,481 @@
         "image": "https://arctic.codes/assets/img/about.jpg",
         "jobTitle": "Programmer",
         "sameAs": [
-            "https://www.linkedin.com/in/mateusz-stompor/",
-            "https://github.com/mateuszstompor",
-            "https://medium.com/@mateusz.stompor",
-            "https://www.facebook.com/mstompor",
-            "https://www.instagram.com/mateusz.stompor"
+          "https://www.linkedin.com/in/mateusz-stompor/",
+          "https://github.com/mateuszstompor",
+          "https://medium.com/@mateusz.stompor",
+          "https://www.facebook.com/mstompor",
+          "https://www.instagram.com/mateusz.stompor"
         ]
-        }
-        </script>
-    </head>
-<body>
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="brand">Arctic Codes</div>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <a href="#cv" id="cv-link">Resume</a>
+      </nav>
+    </header>
 
-  <header>
-    <div class="brand">Arctic Codes</div>
-    <nav aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-      <a href="#cv" id="cv-link">Resume</a>
-    </nav>
-  </header>
-
-  <section class="parallax" data-speed="0.18" style="height:40vh; min-height:240px; position:relative; overflow:hidden;">
-    <video class="bg" autoplay muted loop playsinline poster="./assets/videos/1-placeholder.jpg"
-          style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.5); z-index:1;">
-      <source src="./assets/videos/1.mov" type="video/mp4">
-      <img src="./assets/videos/1-placeholder.jpg"
-          alt="Background" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.5);">
-    </video>
-    <div class="inner" role="banner">
-    <h1>Mateusz Stompór - Software Engineer</h1>
-    <p>
-      <div>
-        <span id="text"></span><span class="cursor" id="cursor"></span>
-        <div class="thinking" id="thinking"><span>.</span><span>.</span><span>.</span></div>
-      </div>
-    </p>
-  </div>
-  </section>
-
-  <main>
-    <section class="content" id="about">
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
-        <h2 style="margin:0;">About Me</h2>
-        <div style="color:var(--muted); font-size:0.95rem;">Available for freelance & full-time work</div>
-      </div>
-      <div class="about__container bd-grid" aria-labelledby="about">
+    <section
+      class="parallax"
+      data-speed="0.18"
+      style="
+        height: 40vh;
+        min-height: 240px;
+        position: relative;
+        overflow: hidden;
+      "
+    >
+      <video
+        class="bg"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="./assets/videos/1-placeholder.jpg"
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: brightness(0.5);
+          z-index: 1;
+        "
+      >
+        <source src="./assets/videos/1.mov" type="video/mp4" />
+        <img
+          src="./assets/videos/1-placeholder.jpg"
+          alt="Background"
+          style="
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.5);
+          "
+        />
+      </video>
+      <div class="inner" role="banner">
+        <h1>Mateusz Stompór - Software Engineer</h1>
+        <!-- <p> -->
         <div>
-            <div class="profile" aria-label="Profile">
-            <img src="./assets/img/about.jpg" alt="Portrait">
+          <span id="text"></span><span class="cursor" id="cursor"></span>
+          <div class="thinking" id="thinking">
+            <span>.</span><span>.</span><span>.</span>
           </div>
         </div>
+        <!-- </p> -->
+      </div>
+    </section>
 
-        <div>
-          <div class="bio">
-          <h3 style="margin-top:0; margin-bottom:0.25rem;">Who am I?</h3>
-          <p style="color:var(--muted); margin-top:0.4rem;">A dedicated programmer with a focus on developing plugins for Final Cut Pro. With a strong background in C++, Objective-C, and Apple’s Metal framework, I specialize in creating efficient, high-performance tools for video editing workflows. My development approach often involves Manual Reference Counting (MRC) to optimize memory management, and I’m passionate about solving complex problems that push the boundaries of creativity in media production. Outside of coding, I enjoy the world of stand-up comedy, which keeps me grounded and inspired.</p>
-
-          <div style="margin-top:1rem;">
-            <strong style="color:var(--muted);">What I do</strong>
-            <ul style="color:var(--muted); margin-top:0.5rem">
-              <li>Product & UI design</li>
-              <li>Frontend development (HTML/CSS/JS/React/Vue)</li>
-              <li>Motion & interaction design</li>
-            </ul>
+    <main>
+      <section class="content" id="about">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+          "
+        >
+          <h2 style="margin: 0">About Me</h2>
+          <div style="color: var(--muted); font-size: 0.95rem">
+            Available for freelance & full-time work
+          </div>
+        </div>
+        <div class="about__container bd-grid" aria-labelledby="about">
+          <div>
+            <div class="profile" aria-label="Profile">
+              <img src="./assets/img/about.jpg" alt="Portrait" />
+            </div>
           </div>
 
-          <div style="margin-top:1rem;">
-            <strong style="color:var(--muted);">Skills</strong>
-            <div class="skills" aria-hidden="false">
-              <span class="skill">HTML</span>
-              <span class="skill">CSS</span>
-              <span class="skill">JavaScript</span>
-              <span class="skill">React</span>
-              <span class="skill">Figma</span>
-              <span class="skill">Accessibility</span>
+          <div>
+            <div class="bio">
+              <h3 style="margin-top: 0; margin-bottom: 0.25rem">Who am I?</h3>
+              <p style="color: var(--muted); margin-top: 0.4rem">
+                A dedicated programmer with a focus on developing plugins for
+                Final Cut Pro. With a strong background in C++, Objective-C, and
+                Apple’s Metal framework, I specialize in creating efficient,
+                high-performance tools for video editing workflows. My
+                development approach often involves Manual Reference Counting
+                (MRC) to optimize memory management, and I’m passionate about
+                solving complex problems that push the boundaries of creativity
+                in media production. Outside of coding, I enjoy the world of
+                stand-up comedy, which keeps me grounded and inspired.
+              </p>
+
+              <div style="margin-top: 1rem">
+                <strong style="color: var(--muted)">What I do</strong>
+                <ul style="color: var(--muted); margin-top: 0.5rem">
+                  <li>Product & UI design</li>
+                  <li>Frontend development (HTML/CSS/JS/React/Vue)</li>
+                  <li>Motion & interaction design</li>
+                </ul>
+              </div>
+
+              <div style="margin-top: 1rem">
+                <strong style="color: var(--muted)">Skills</strong>
+                <div class="skills" aria-hidden="false">
+                  <span class="skill">HTML</span>
+                  <span class="skill">CSS</span>
+                  <span class="skill">JavaScript</span>
+                  <span class="skill">React</span>
+                  <span class="skill">Figma</span>
+                  <span class="skill">Accessibility</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Portfolio -->
-    <section class="parallax" data-speed="0.18" style="height:40vh; min-height:240px; position:relative; overflow:hidden;">
-      <video class="bg" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
-            style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.5); z-index:-1;">
-        <source src="./assets/videos/2.mov" type="video/mp4">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
-            alt="Background" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.5);">
-      </video>
-      <div class="inner" style="position:relative; z-index:1; color:white; text-align:center; top:50%; transform:translateY(-50%);">
-        <h1>Selected Work</h1>
-        <p>Recent projects and case studies</p>
-      </div>
-    </section>
-
-    <section class="content" id="portfolio" aria-labelledby="portfolio">
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
-        <h2 style="margin:0;">Rendering</h2>
-        <div style="color:var(--muted); font-size:0.95rem;">Click an item to view</div>
-      </div>
-
-      <div class="gallery-grid" id="gallery">
-        <!-- Replace images and titles with your work -->
-        <div class="tile" data-index="0" tabindex="0" role="button" aria-label="Open project One">
-          <img src="assets/img/work6.jpg" alt="Project One">
-          <div class="meta">Project One</div>
+      <!-- Portfolio -->
+      <section
+        class="parallax"
+        data-speed="0.18"
+        style="
+          height: 40vh;
+          min-height: 240px;
+          position: relative;
+          overflow: hidden;
+        "
+      >
+        <video
+          class="bg"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+          style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.5);
+            z-index: -1;
+          "
+        >
+          <source src="./assets/videos/2.mov" type="video/mp4" />
+          <img
+            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+            alt="Background"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              filter: brightness(0.5);
+            "
+          />
+        </video>
+        <div
+          class="inner"
+          style="
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+          "
+        >
+          <h1>Selected Work</h1>
+          <p>Recent projects and case studies</p>
         </div>
+      </section>
 
-        <div class="tile" data-index="1" tabindex="0" role="button" aria-label="Open project Two">
-          <img src="assets/img/work2.jpg" alt="Project Two">
-          <div class="meta">Project Two</div>
-        </div>
-
-        <div class="tile" data-index="2" tabindex="0" role="button" aria-label="Open project Three">
-          <img src="assets/img/work3.jpg" alt="Project Three">
-          <div class="meta">Project Three</div>
-        </div>
-
-        <div class="tile" data-index="3" tabindex="0" role="button" aria-label="Open project Four">
-            <img src="assets/img/work5.jpg" alt="Project Four">
-          <div class="meta">Project Four</div>
-        </div>
-
-        <div class="tile" data-index="4" tabindex="0" role="button" aria-label="Open project Five">
-            <img src="assets/img/work8.jpg" alt="Project Five">
-          <div class="meta">Project Five</div>
-        </div>
-
-        <div class="tile" data-index="5" tabindex="0" role="button" aria-label="Open project Six">
-            <img src="assets/img/work7.jpg" alt="Project Six">
-          <div class="meta">Project Six</div>
-        </div>
-      </div>
-
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;padding-top: 2em;">
-        <h2 style="margin:0;">Other</h2>
-        <div style="color:var(--muted); font-size:0.95rem;">Click an item to view</div>
-      </div>
-
-      <div class="gallery-grid" id="gallery">
-        <!-- Replace images and titles with your work -->
-        <div class="tile" data-index="6" tabindex="0" role="button" aria-label="Open project Seven">
-            <img src="assets/img/work10.jpg" alt="Project Six">
-          <div class="meta">Project Seven</div>
-        </div>
-
-        <div class="tile" data-index="6" tabindex="0" role="button" aria-label="Open project Seven">
-            <img src="assets/img/work11.jpg" alt="Project Six">
-          <div class="meta">Project Seven</div>
-        </div>
-
-        <div class="tile" data-index="6" tabindex="0" role="button" aria-label="Open project Seven">
-            <img src="assets/img/work12.jpg" alt="Project Six">
-          <div class="meta">Project Seven</div>
-        </div>
-
-        <div class="tile" data-index="6" tabindex="0" role="button" aria-label="Open project Seven">
-            <img src="assets/img/work13.jpg" alt="Project Six">
-          <div class="meta">Project Seven</div>
-        </div>
-      </div>
-    </section>
-
-    
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project preview">
-      <div class="lb-inner" role="document">
-        <div class="lb-img" id="lb-img">
-          <img src="" alt="" id="lb-image">
-        </div>
-        <aside class="lb-side">
-          <div id="lb-title" style="color:var(--text); font-weight:700; font-size:1.05rem">Project Title</div>
-          <div id="lb-desc" style="color:var(--muted)">Short project description goes here.</div>
-          <div class="lb-controls">
-            <button class="icon-btn" id="prev" title="Previous (←)">◀</button>
-            <button class="icon-btn" id="next" title="Next (→)">▶</button>
-            <button class="icon-btn" id="close" title="Close (Esc)">✕</button>
+      <section class="content" id="portfolio" aria-labelledby="portfolio">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+          "
+        >
+          <h2 style="margin: 0">Rendering</h2>
+          <div style="color: var(--muted); font-size: 0.95rem">
+            Click an item to view
           </div>
-        </aside>
-      </div>
-    </div>
+        </div>
 
-    <!-- Contact -->
-    <section class="content" id="contact" aria-labelledby="contact">
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
-        <h2 style="margin:0;">Contact</h2>
-        <div style="color:var(--muted); font-size:0.95rem;">Let's talk about your project</div>
+        <div class="gallery-grid" id="gallery">
+          <!-- Replace images and titles with your work -->
+          <div
+            class="tile"
+            data-index="0"
+            tabindex="0"
+            role="button"
+            aria-label="Open project One"
+          >
+            <img src="assets/img/work6.jpg" alt="Project One" />
+            <div class="meta">Project One</div>
+          </div>
+
+          <div
+            class="tile"
+            data-index="1"
+            tabindex="0"
+            role="button"
+            aria-label="Open project Two"
+          >
+            <img src="assets/img/work2.jpg" alt="Project Two" />
+            <div class="meta">Project Two</div>
+          </div>
+
+          <div
+            class="tile"
+            data-index="2"
+            tabindex="0"
+            role="button"
+            aria-label="Open project Three"
+          >
+            <img src="assets/img/work3.jpg" alt="Project Three" />
+            <div class="meta">Project Three</div>
+          </div>
+
+          <div
+            class="tile"
+            data-index="3"
+            tabindex="0"
+            role="button"
+            aria-label="Open project Four"
+          >
+            <img src="assets/img/work5.jpg" alt="Project Four" />
+            <div class="meta">Project Four</div>
+          </div>
+
+          <div
+            class="tile"
+            data-index="4"
+            tabindex="0"
+            role="button"
+            aria-label="Open project Five"
+          >
+            <img src="assets/img/work8.jpg" alt="Project Five" />
+            <div class="meta">Project Five</div>
+          </div>
+
+          <div
+            class="tile"
+            data-index="5"
+            tabindex="0"
+            role="button"
+            aria-label="Open project Six"
+          >
+            <img src="assets/img/work7.jpg" alt="Project Six" />
+            <div class="meta">Project Six</div>
+          </div>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-top: 2em;
+          "
+        >
+          <h2 style="margin: 0">Other</h2>
+          <div style="color: var(--muted); font-size: 0.95rem">
+            Click an item to view
+          </div>
+        </div>
+
+        <div class="gallery-grid" id="gallery">
+          <!-- Replace images and titles with your work -->
+          <div
+            class="tile"
+            data-index="6"
+            tabindex="0"
+            role="button"
+            aria-label="Open project Seven"
+          >
+            <img src="assets/img/work10.jpg" alt="Project Six" />
+            <div class="meta">Project Seven</div>
+          </div>
+
+          <div
+            class="tile"
+            data-index="6"
+            tabindex="0"
+            role="button"
+            aria-label="Open project Seven"
+          >
+            <img src="assets/img/work11.jpg" alt="Project Six" />
+            <div class="meta">Project Seven</div>
+          </div>
+
+          <div
+            class="tile"
+            data-index="6"
+            tabindex="0"
+            role="button"
+            aria-label="Open project Seven"
+          >
+            <img src="assets/img/work12.jpg" alt="Project Six" />
+            <div class="meta">Project Seven</div>
+          </div>
+
+          <div
+            class="tile"
+            data-index="6"
+            tabindex="0"
+            role="button"
+            aria-label="Open project Seven"
+          >
+            <img src="assets/img/work13.jpg" alt="Project Six" />
+            <div class="meta">Project Seven</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lightbox -->
+      <div
+        class="lightbox"
+        id="lightbox"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Project preview"
+      >
+        <div class="lb-inner" role="document">
+          <div class="lb-img" id="lb-img">
+            <img src="" alt="" id="lb-image" />
+          </div>
+          <aside class="lb-side">
+            <div
+              id="lb-title"
+              style="color: var(--text); font-weight: 700; font-size: 1.05rem"
+            >
+              Project Title
+            </div>
+            <div id="lb-desc" style="color: var(--muted)">
+              Short project description goes here.
+            </div>
+            <div class="lb-controls">
+              <button class="icon-btn" id="prev" title="Previous (←)">
+                ◀
+              </button>
+              <button class="icon-btn" id="next" title="Next (→)">▶</button>
+              <button class="icon-btn" id="close" title="Close (Esc)">✕</button>
+            </div>
+          </aside>
+        </div>
       </div>
 
-      <!-- <div class="contact"> -->
+      <!-- Contact -->
+      <section class="content" id="contact" aria-labelledby="contact">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+          "
+        >
+          <h2 style="margin: 0">Contact</h2>
+          <div style="color: var(--muted); font-size: 0.95rem">
+            Let's talk about your project
+          </div>
+        </div>
+
+        <!-- <div class="contact"> -->
         <form action="https://formspree.io/f/xzzjoaqz" method="POST">
           <label>
             Your email:
-            <input type="email" name="email" required placeholder="you@example.com">
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="you@example.com"
+            />
           </label>
-          
-          <div style="margin-top:0.8rem;">
+
+          <div style="margin-top: 0.8rem">
             <label>
               Your message:
-              <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+              <textarea
+                id="message"
+                name="message"
+                required
+                placeholder="Tell me about your project..."
+              ></textarea>
             </label>
           </div>
-          
+
           <div class="form-foot">
             <button type="submit" class="btn">Send Message</button>
-            <div class="hint" id="form-hint">Or email me at <a href="mailto:contact@arctic.codes" style="color:var(--accent); text-decoration:none;">contact@arctic.codes</a></div>
+            <div class="hint" id="form-hint">
+              Or email me at
+              <a
+                href="mailto:contact@arctic.codes"
+                style="color: var(--accent); text-decoration: none"
+                >contact@arctic.codes</a
+              >
+            </div>
           </div>
 
-          <div id="form-msg" style="margin-top:0.6rem; color:var(--accent); display:none;"></div>
+          <div
+            id="form-msg"
+            style="margin-top: 0.6rem; color: var(--accent); display: none"
+          ></div>
         </form>
-    </section>
+      </section>
+    </main>
 
-  </main>
+    <footer>
+      <div class="footer__social">
+        <a
+          href="https://www.facebook.com/mstompor"
+          aria-label="Link to Facebook Account"
+          class="footer__icon"
+          ><i class="bx bxl-facebook"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/mateusz.stompor"
+          aria-label="Link to Instagram Account"
+          class="footer__icon"
+          ><i class="bx bxl-instagram"></i
+        ></a>
+        <a
+          href="https://medium.com/@mateusz.stompor"
+          aria-label="Link to Medium Account"
+          class="footer__icon"
+          ><i class="bx bxl-medium"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/mateusz-stompor/"
+          aria-label="Link to LinkedIn Account"
+          class="footer__icon"
+          ><i class="bx bxl-linkedin"></i
+        ></a>
+        <a
+          href="https://github.com/mateuszstompor"
+          aria-label="Link to GitHub Account"
+          class="footer__icon"
+          ><i class="bx bxl-github"></i
+        ></a>
+      </div>
+      <p class="footer__copy">
+        &#169; Mateusz Stompór — Built with care. All rights reserved.
+      </p>
+    </footer>
 
-  <footer>
-    <div class="footer__social">
-        <a href="https://www.facebook.com/mstompor" aria-label="Link to Facebook Account" class="footer__icon"><i class='bx bxl-facebook'></i></a>
-        <a href="https://www.instagram.com/mateusz.stompor" aria-label="Link to Instagram Account" class="footer__icon"><i class='bx bxl-instagram'></i></a>
-        <a href="https://medium.com/@mateusz.stompor" aria-label="Link to Medium Account" class="footer__icon"><i class='bx bxl-medium'></i></a>
-        <a href="https://www.linkedin.com/in/mateusz-stompor/" aria-label="Link to LinkedIn Account" class="footer__icon"><i class='bx bxl-linkedin'></i></a>
-        <a href="https://github.com/mateuszstompor" aria-label="Link to GitHub Account" class="footer__icon"><i class='bx bxl-github'></i></a>
-    </div>
-    <p class="footer__copy">&#169; Mateusz Stompór — Built with care. All rights reserved.</p>
-  </footer>
-
-  <script src="assets/js/script.js"></script>
-</body>
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>
