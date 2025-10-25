@@ -16,6 +16,7 @@ Visit the live portfolio at: [https://arctic.codes](https://arctic.codes)
 ## 📁 Structure
 
 This repository includes:
+
 - Static files (HTML, CSS, JS)
 - GitHub Actions workflow for deployment
 
