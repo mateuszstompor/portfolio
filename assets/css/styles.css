@@ -23,6 +23,18 @@ body {
   background-color: var(--bg);
 }
 
+#cv-link {
+  display: inline-flex;
+  align-items: center;   /* center text & icon vertically */
+  gap: 0.35em;           /* small spacing between text and icon */
+}
+
+#cv-link i {
+  display: inline-block; /* makes transform/vertical-align predictable */
+  font-size: 1em;        /* match icon size to text */
+  transform: translateY(0.08em);
+}
+
 body {
   margin: 0;
   font-family:
