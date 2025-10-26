@@ -104,29 +104,7 @@
       if (e.key === "ArrowLeft") showPrev();
     }
   });
-
-  /* -------- CV links: notify user to replace file if missing -------- */
-  const cvLinks = [
-    document.getElementById("download-cv"),
-    document.getElementById("view-cv"),
-    document.getElementById("cv-ref"),
-    document.getElementById("cv-link"),
-  ];
-  cvLinks.forEach((a) => {
-    if (!a) return;
-    // If the href is the demo resume path (resume.pdf) show tooltip hint or intercept
-    const href = a.getAttribute("href") || "";
-    if (href.includes("resume.pdf")) {
-      a.addEventListener("click", (e) => {
-        // allow actual navigation, but show a small notice
-        // (You can remove this if you add a real resume file)
-        console.info(
-          'Resume link clicked. Replace "resume.pdf" with your actual resume file.',
-        );
-      });
-    }
-  });
-
+  
   // small accessibility: focus lightbox on open
   lightbox.tabIndex = -1;
 
