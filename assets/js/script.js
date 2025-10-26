@@ -104,7 +104,7 @@
       if (e.key === "ArrowLeft") showPrev();
     }
   });
-  
+
   // small accessibility: focus lightbox on open
   lightbox.tabIndex = -1;
 
