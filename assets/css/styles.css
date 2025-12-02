@@ -559,9 +559,3 @@ footer {
   margin-left: var(--mb-2);
   margin-right: var(--mb-2);
 }
-
-.skills__img,
-.skills__img2 {
-  border-radius: 0.5rem;
-  margin-bottom: 5rem;
-}
