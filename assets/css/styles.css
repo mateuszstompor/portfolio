@@ -522,7 +522,6 @@ footer {
     height: 48vh;
   }
   .profile img {
-    height: 230px;
     object-fit: cover;
   }
 }
