@@ -189,4 +189,54 @@
   document
     .querySelectorAll(".reveal, .reveal-group")
     .forEach((el) => revealObserver.observe(el));
+
+  /* -------- Header scroll behavior -------- */
+  const header = document.querySelector("header");
+  let lastScrollY = 0;
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      const y = window.scrollY;
+      header.classList.toggle("scrolled", y > 40);
+
+      if (window.innerWidth < 768) {
+        if (y > lastScrollY && y > 80) {
+          header.classList.add("nav-hidden");
+        } else {
+          header.classList.remove("nav-hidden");
+        }
+      } else {
+        header.classList.remove("nav-hidden");
+      }
+      lastScrollY = y;
+    },
+    { passive: true },
+  );
+
+  /* -------- Scroll-spy for nav -------- */
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  const sections = Array.from(navLinks).map((link) => ({
+    link,
+    target: document.querySelector(link.getAttribute("href")),
+  }));
+
+  const spyObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const match = sections.find((s) => s.target === entry.target);
+        if (match) {
+          if (entry.isIntersecting) {
+            navLinks.forEach((l) => l.classList.remove("active"));
+            match.link.classList.add("active");
+          }
+        }
+      });
+    },
+    { rootMargin: "-40% 0px -55% 0px" },
+  );
+
+  sections.forEach((s) => {
+    if (s.target) spyObserver.observe(s.target);
+  });
 })();
