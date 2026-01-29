@@ -27,6 +27,7 @@ npm install && node generate-sitemap.js
 **Single-page app** — `index.html` (all markup), `assets/css/styles.css` (all styles), `assets/js/script.js` (all behavior).
 
 **JS modules** (all in script.js, vanilla IIFE pattern):
+
 - Parallax scrolling system — disabled below 768px, uses `requestAnimationFrame` and passive listeners
 - Project gallery lightbox — modal with keyboard nav (arrows, Esc), ARIA/focus management
 - Typewriter animation — rotating taglines with cursor states
