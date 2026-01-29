@@ -386,6 +386,16 @@ textarea {
   color: var(--text);
   font-size: 0.95rem;
   outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+input:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.1);
+  background: rgba(255, 255, 255, 0.03);
 }
 textarea {
   min-height: 140px;
@@ -500,25 +510,52 @@ textarea {
 
 /* ===== FOOTER =====*/
 footer {
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem 2rem;
   color: var(--muted);
   text-align: center;
   font-size: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .footer__social {
   margin-bottom: var(--mb-4);
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
 }
 
 .footer__icon {
   font-size: 1.5rem;
   color: var(--muted);
-  margin: 0 var(--mb-2);
-  transition: color 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 10px;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .footer__icon:hover {
-  color: var(--accent);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-3px);
+}
+
+/* Per-platform brand colors */
+.footer__icon[aria-label*="Facebook"]:hover {
+  color: #1877f2;
+}
+.footer__icon[aria-label*="Instagram"]:hover {
+  color: #e4405f;
+}
+.footer__icon[aria-label*="Medium"]:hover {
+  color: var(--text);
+}
+.footer__icon[aria-label*="LinkedIn"]:hover {
+  color: #0a66c2;
+}
+.footer__icon[aria-label*="GitHub"]:hover {
+  color: var(--text);
 }
 
 .footer__copy {
