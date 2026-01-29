@@ -224,8 +224,24 @@ nav a:hover {
   );
   border: 1px solid rgba(255, 255, 255, 0.03);
   transition:
-    transform 0.22s ease,
-    box-shadow 0.22s ease;
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease;
+}
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(94, 234, 212, 0.12) 0%,
+    transparent 50%,
+    rgba(96, 165, 250, 0.08) 100%
+  );
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 2;
 }
 .tile img {
   display: block;
@@ -234,16 +250,22 @@ nav a:hover {
   object-fit: cover;
   transition:
     filter 0.4s ease,
-    transform 0.4s ease;
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   filter: saturate(20%) brightness(80%);
 }
 .tile:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 40px rgba(2, 6, 23, 0.6);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 14px 40px rgba(2, 6, 23, 0.6),
+    0 0 20px rgba(94, 234, 212, 0.08);
+  border-color: rgba(94, 234, 212, 0.15);
 }
-
+.tile:hover::after {
+  opacity: 1;
+}
 .tile:hover img {
   filter: saturate(100%) brightness(100%);
+  transform: scale(1.05);
 }
 
 .tile .meta {
@@ -251,11 +273,20 @@ nav a:hover {
   left: 10px;
   bottom: 10px;
   padding: 0.4rem 0.55rem;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
   color: var(--text);
   border-radius: 6px;
   font-weight: 700;
   font-size: 0.9rem;
+  z-index: 3;
+  transition:
+    background 0.3s ease,
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tile:hover .meta {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-2px);
 }
 
 /* Lightbox */
