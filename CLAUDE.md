@@ -22,6 +22,10 @@ npx prettier --write "**/*.{html,js,css,md}"
 npm install && node generate-sitemap.js
 ```
 
+## Rules
+
+- Never run formatting or linting commands (prettier, eslint, etc.). CI handles it.
+
 ## Architecture
 
 **Single-page app** — `index.html` (all markup), `assets/css/styles.css` (all styles), `assets/js/script.js` (all behavior).
