@@ -115,20 +115,20 @@
             margin-bottom: 1rem;
           "
         >
-          <h2 style="margin: 0">About Me</h2>
+          <h2 style="margin: 0" class="reveal">About Me</h2>
           <div style="color: var(--muted); font-size: 0.95rem">
             Available for freelance & full-time work
           </div>
         </div>
         <div class="about__container bd-grid" aria-labelledby="about">
           <div>
-            <div class="profile" aria-label="Profile">
+            <div class="profile reveal" aria-label="Profile">
               <img src="./assets/img/about.jpg" alt="Portrait" />
             </div>
           </div>
 
           <div>
-            <div class="bio">
+            <div class="bio reveal">
               <h3 style="margin-top: 0; margin-bottom: 0.25rem">Who am I?</h3>
               <p
                 style="
@@ -245,15 +245,15 @@
             margin-bottom: 1rem;
           "
         >
-          <h2 style="margin: 0">Rendering</h2>
+          <h2 style="margin: 0" class="reveal">Rendering</h2>
           <div style="color: var(--muted); font-size: 0.95rem">
             Click an item to view
           </div>
         </div>
 
-        <div class="gallery-grid" id="gallery">
+        <div class="gallery-grid reveal-group" id="gallery">
           <div
-            class="tile"
+            class="tile reveal-child"
             data-index="0"
             tabindex="0"
             role="button"
@@ -283,7 +283,7 @@
           </div>
 
           <div
-            class="tile"
+            class="tile reveal-child"
             data-index="1"
             tabindex="0"
             role="button"
@@ -303,7 +303,7 @@
           </div>
 
           <div
-            class="tile"
+            class="tile reveal-child"
             data-index="2"
             tabindex="0"
             role="button"
@@ -318,7 +318,7 @@
           </div>
 
           <div
-            class="tile"
+            class="tile reveal-child"
             data-index="3"
             tabindex="0"
             role="button"
@@ -350,7 +350,7 @@
           </div>
 
           <div
-            class="tile"
+            class="tile reveal-child"
             data-index="4"
             tabindex="0"
             role="button"
@@ -372,7 +372,7 @@
           </div>
 
           <div
-            class="tile"
+            class="tile reveal-child"
             data-index="5"
             tabindex="0"
             role="button"
@@ -407,16 +407,16 @@
             padding-top: 2em;
           "
         >
-          <h2 style="margin: 0">Other</h2>
+          <h2 style="margin: 0" class="reveal">Other</h2>
           <div style="color: var(--muted); font-size: 0.95rem">
             Click an item to view
           </div>
         </div>
 
-        <div class="gallery-grid" id="gallery">
+        <div class="gallery-grid reveal-group" id="gallery">
           <!-- Replace images and titles with your work -->
           <div
-            class="tile"
+            class="tile reveal-child"
             data-index="6"
             tabindex="0"
             role="button"
@@ -432,7 +432,7 @@
           </div>
 
           <div
-            class="tile"
+            class="tile reveal-child"
             data-index="7"
             tabindex="0"
             role="button"
@@ -493,13 +493,17 @@
             margin-bottom: 1rem;
           "
         >
-          <h2 style="margin: 0">Contact</h2>
+          <h2 style="margin: 0" class="reveal">Contact</h2>
           <div style="color: var(--muted); font-size: 0.95rem">
             Let's talk about your project
           </div>
         </div>
 
-        <form action="https://formspree.io/f/xzzjoaqz" method="POST">
+        <form
+          action="https://formspree.io/f/xzzjoaqz"
+          method="POST"
+          class="reveal"
+        >
           <label>
             Your email:
             <input
