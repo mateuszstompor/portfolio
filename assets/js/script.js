@@ -36,9 +36,11 @@
   const lbImage = document.getElementById("lb-image");
   const lbTitle = document.getElementById("lb-title");
   const lbDesc = document.getElementById("lb-desc");
+  const lbCounter = document.getElementById("lb-counter");
+  const lbTags = document.getElementById("lb-tags");
+  const lbRepo = document.getElementById("lb-repo");
   let currentIndex = 0;
 
-  // simple metadata for each tile (replace titles/descriptions as needed)
   const itemsMeta = gallery.map((el, idx) => {
     const img = el.querySelector("img");
     return {
@@ -48,6 +50,8 @@
       desc:
         el.querySelector(".description")?.textContent ||
         "Short description of the project. Replace with your own text.",
+      repo: el.dataset.repo || "",
+      tags: el.dataset.tags ? el.dataset.tags.split(",") : [],
     };
   });
 
@@ -58,12 +62,23 @@
     lbImage.alt = meta.alt;
     lbTitle.textContent = meta.title;
     lbDesc.textContent = meta.desc;
+    lbCounter.textContent = `${index + 1} / ${itemsMeta.length}`;
+    lbTags.innerHTML = meta.tags
+      .map((t) => `<span class="skill">${t}</span>`)
+      .join("");
+    if (meta.repo) {
+      lbRepo.href = meta.repo;
+      lbRepo.style.display = "inline-flex";
+    } else {
+      lbRepo.style.display = "none";
+    }
+    document.body.classList.add("lb-open");
     lightbox.classList.add("open");
     lightbox.setAttribute("aria-hidden", "false");
-    // trap focus:
     lightbox.focus();
   }
   function closeLightbox() {
+    document.body.classList.remove("lb-open");
     lightbox.classList.remove("open");
     lightbox.setAttribute("aria-hidden", "true");
     lbImage.src = "";
@@ -112,10 +127,11 @@
   const cursor = document.getElementById("cursor");
   const thinking = document.getElementById("thinking");
 
-  const first = "Where bytes meet beauty — building from the silicon upward.";
-  const second = "Designing light, form, and function in motion.";
+  const first =
+    "GPU shaders, 3D engines, and video tools — built from scratch.";
+  const second = "From IBM's data warehouses to MotionVFX's creative pipeline.";
   const third =
-    "Building experiences that feel native to Apple’s soul. Based in Cracow, Poland.";
+    "Red Hat Certified Architect. M.Sc. Computer Science. Based in Cracow, Poland.";
   const TYPING_SPEED = 70;
 
   function wait(ms) {

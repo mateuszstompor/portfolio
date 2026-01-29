@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Explore Mateusz Stompór's personal portfolio showcasing top projects, programming expertise, and skills in Final Cut Pro plugin development, Apple Metal, and Objective-C."
+      content="Mateusz Stompór — Senior Software Engineer specializing in GPU programming, 3D engine development, and real-time rendering with Apple Metal and C++."
     />
     <link rel="icon" href="assets/img/favicon.ico" type="image/ico" />
     <link rel="stylesheet" href="assets/css/styles.css?version=2" />
@@ -17,6 +17,31 @@
 
     <title>Mateusz Stompór | Arctic Codes</title>
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://arctic.codes/" />
+    <meta property="og:title" content="Mateusz Stompór | Arctic Codes" />
+    <meta
+      property="og:description"
+      content="Mateusz Stompór — Senior Software Engineer specializing in GPU programming, 3D engine development, and real-time rendering with Apple Metal and C++."
+    />
+    <meta
+      property="og:image"
+      content="https://arctic.codes/assets/img/about.jpg"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mateusz Stompór | Arctic Codes" />
+    <meta
+      name="twitter:description"
+      content="Mateusz Stompór — Senior Software Engineer specializing in GPU programming, 3D engine development, and real-time rendering with Apple Metal and C++."
+    />
+    <meta
+      name="twitter:image"
+      content="https://arctic.codes/assets/img/about.jpg"
+    />
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -24,7 +49,7 @@
         "name": "Mateusz Stompór",
         "url": "https://arctic.codes",
         "image": "https://arctic.codes/assets/img/about.jpg",
-        "jobTitle": "Programmer",
+        "jobTitle": "Senior Software Engineer",
         "sameAs": [
           "https://www.linkedin.com/in/mateusz-stompor/",
           "https://github.com/mateuszstompor",
@@ -41,6 +66,7 @@
       <nav aria-label="Primary">
         <a href="#about">About</a>
         <a href="#portfolio">Portfolio</a>
+        <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
         <div>
           <a
@@ -137,25 +163,29 @@
                   text-align: justify;
                 "
               >
-                A dedicated programmer with a focus on developing plugins for
-                Final Cut Pro. With a strong background in C++, Objective-C, and
-                Apple’s Metal framework, I specialize in creating efficient,
-                high-performance tools for video editing workflows. My
-                development approach often involves Manual Reference Counting
-                (MRC) to optimize memory management, and I’m passionate about
-                solving complex problems that push the boundaries of creativity
-                in media production. Outside of coding, I enjoy the world of
-                stand-up comedy, which keeps me grounded and inspired.
+                Senior Software Engineer at MotionVFX, previously Principal
+                Engineer at IBM. I hold an M.Sc. in Computer Science from
+                Jagiellonian University and specialize in GPU programming with
+                Apple Metal, real-time rendering, and systems-level C++ &
+                Objective-C. I've built multiple 3D engines from scratch,
+                develop plugins for Final Cut Pro, and work extensively with
+                Manual Reference Counting (MRC) for optimal memory management.
+                I'm a Red Hat Certified Architect with experience in reverse
+                engineering and application security. Outside of coding, I
+                perform stand-up comedy.
               </p>
 
               <div style="margin-top: 1rem; text-align: initial">
                 <strong style="color: var(--muted)">What I do</strong>
                 <ul style="color: var(--muted); margin-top: 0.5rem">
-                  <li>Development for Apple's ecosystem</li>
-                  <li>Computer graphics programming</li>
-                  <li>Application design & architecture</li>
-                  <li>Video editing software programming</li>
-                  <li>Processes optimization - efficient CI/CD</li>
+                  <li>GPU shader programming with Apple Metal & OpenGL</li>
+                  <li>Real-time rendering & 3D engine development</li>
+                  <li>Video editing plugin development (Final Cut Pro)</li>
+                  <li>Systems programming in C++ & Objective-C</li>
+                  <li>
+                    CI/CD automation & DevOps (Ansible, OpenShift, Docker)
+                  </li>
+                  <li>Reverse engineering & application security</li>
                 </ul>
               </div>
 
@@ -171,6 +201,20 @@
                   <span class="skill">C</span>
                   <span class="skill">HTML&CSS</span>
                   <span class="skill">Ruby</span>
+                  <span class="skill">SQL</span>
+                  <span class="skill">x86 Assembly</span>
+                </div>
+              </div>
+
+              <div style="margin-top: 1rem">
+                <strong style="color: var(--muted)">Technologies</strong>
+                <div class="skills" aria-hidden="false">
+                  <span class="skill">Metal</span>
+                  <span class="skill">OpenGL</span>
+                  <span class="skill">Ansible</span>
+                  <span class="skill">Docker</span>
+                  <span class="skill">OpenShift</span>
+                  <span class="skill">Git</span>
                 </div>
               </div>
             </div>
@@ -204,7 +248,7 @@
             height: 100%;
             object-fit: cover;
             filter: brightness(0.5);
-            z-index: -1;
+            z-index: 1;
           "
         >
           <source src="./assets/videos/2.mov" type="video/mp4" />
@@ -255,6 +299,8 @@
           <div
             class="tile reveal-child"
             data-index="0"
+            data-repo="https://github.com/mateuszstompor/P0rc3lain"
+            data-tags="Swift,Metal,macOS"
             tabindex="0"
             role="button"
             aria-label="Open project One"
@@ -285,6 +331,8 @@
           <div
             class="tile reveal-child"
             data-index="1"
+            data-repo="https://github.com/mateuszstompor/FlappyBird"
+            data-tags="Python,Pygame"
             tabindex="0"
             role="button"
             aria-label="Open project Two"
@@ -305,6 +353,8 @@
           <div
             class="tile reveal-child"
             data-index="2"
+            data-repo="https://github.com/mateuszstompor/P0rc3lain"
+            data-tags="Swift,Metal,SceneKit"
             tabindex="0"
             role="button"
             aria-label="Open project Three"
@@ -320,6 +370,8 @@
           <div
             class="tile reveal-child"
             data-index="3"
+            data-repo="https://github.com/mateuszstompor/mine"
+            data-tags="C++,Objective-C++,Ray Tracing"
             tabindex="0"
             role="button"
             aria-label="Open project Four"
@@ -352,6 +404,8 @@
           <div
             class="tile reveal-child"
             data-index="4"
+            data-repo="https://github.com/mateuszstompor/ngin"
+            data-tags="C,C++,OpenGL"
             tabindex="0"
             role="button"
             aria-label="Open project Five"
@@ -374,6 +428,8 @@
           <div
             class="tile reveal-child"
             data-index="5"
+            data-repo="https://github.com/mateuszstompor/MSEngine"
+            data-tags="Objective-C,OpenGL ES,iOS"
             tabindex="0"
             role="button"
             aria-label="Open project Six"
@@ -418,6 +474,8 @@
           <div
             class="tile reveal-child"
             data-index="6"
+            data-repo="https://github.com/mateuszstompor/linked-list-x86"
+            data-tags="x86 Assembly,C"
             tabindex="0"
             role="button"
             aria-label="Open project Seven"
@@ -434,11 +492,13 @@
           <div
             class="tile reveal-child"
             data-index="7"
+            data-repo="https://github.com/mateuszstompor/RHCE"
+            data-tags="Linux,Red Hat,Ansible"
             tabindex="0"
             role="button"
-            aria-label="Open project Seven"
+            aria-label="Open project Eight"
           >
-            <img src="assets/img/work11.jpg" alt="Project Six" />
+            <img src="assets/img/work11.jpg" alt="Project Eight" />
             <div class="meta">RHCE preparations</div>
             <div class="description" style="display: none">
               A repository that has reached a broad audience. I created it while
@@ -446,6 +506,86 @@
               exercises, along with their corresponding answers. The repository
               requires a specific environment, which I also developed.
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content" id="experience">
+        <h2 style="margin: 0 0 1rem" class="reveal">Experience</h2>
+        <div class="experience reveal">
+          <div class="experience-item">
+            <div class="experience-header">
+              <strong>MotionVFX</strong>
+              <span class="experience-date">Mar 2023 – Present</span>
+            </div>
+            <div class="experience-role">Senior Software Engineer</div>
+            <p style="color: var(--muted); margin: 0.4rem 0 0">
+              Core developer of mTracker Surface. GPU effects for Metal,
+              anti-piracy systems, CI modernization.
+            </p>
+          </div>
+          <div class="experience-item">
+            <div class="experience-header">
+              <strong>IBM</strong>
+              <span class="experience-date">Apr 2022 – Mar 2023</span>
+            </div>
+            <div class="experience-role">Principal Software Engineer</div>
+            <p style="color: var(--muted); margin: 0.4rem 0 0">
+              Developer on Netezza Performance Server (500K+ LOC C++). Led
+              parallel reading module for object storage.
+            </p>
+          </div>
+          <div class="experience-item">
+            <div class="experience-header">
+              <strong>IBM</strong>
+              <span class="experience-date">Mar 2019 – Mar 2021</span>
+            </div>
+            <div class="experience-role">Senior / Software Engineer</div>
+            <p style="color: var(--muted); margin: 0.4rem 0 0">
+              Distributed platform manager for Cloud Pak for Data System.
+              OpenShift Operator design.
+            </p>
+          </div>
+          <div class="experience-item">
+            <div class="experience-header">
+              <strong>Ailleron</strong>
+              <span class="experience-date">Oct 2017 – Jan 2019</span>
+            </div>
+            <div class="experience-role">iOS Software Engineer</div>
+            <p style="color: var(--muted); margin: 0.4rem 0 0">
+              iOS apps for luxury hotel chains (Atlantis The Palm, Lux*,
+              Valamar).
+            </p>
+          </div>
+        </div>
+
+        <h2 style="margin: 2rem 0 1rem" class="reveal">Education</h2>
+        <div class="credentials reveal">
+          <div class="credential-item">
+            <strong>M.Sc. Computer Science</strong>
+            <span style="color: var(--muted)"
+              >Jagiellonian University · GPA 4.32/5</span
+            >
+          </div>
+          <div class="credential-item">
+            <strong>B.Sc. Computer Science</strong>
+            <span style="color: var(--muted)"
+              >Jagiellonian University · GPA 4.61/5 · Chancellor's
+              Scholarship</span
+            >
+          </div>
+        </div>
+
+        <h2 style="margin: 2rem 0 1rem" class="reveal">Certifications</h2>
+        <div class="credentials reveal">
+          <div class="credential-item">
+            <strong>Red Hat Certified Architect (RHCA)</strong>
+          </div>
+          <div class="credential-item">
+            <strong>Red Hat Certified Engineer (RHCE)</strong>
+          </div>
+          <div class="credential-item">
+            <strong>Red Hat Certified System Administrator (RHCSA)</strong>
           </div>
         </div>
       </section>
@@ -465,14 +605,41 @@
           </div>
           <aside class="lb-side">
             <div
-              id="lb-title"
-              style="color: var(--text); font-weight: 700; font-size: 1.05rem"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              "
             >
-              Project Title
+              <div
+                id="lb-title"
+                style="color: var(--text); font-weight: 700; font-size: 1.05rem"
+              >
+                Project Title
+              </div>
+              <div
+                id="lb-counter"
+                style="
+                  color: var(--muted);
+                  font-size: 0.85rem;
+                  white-space: nowrap;
+                "
+              ></div>
             </div>
+            <div id="lb-tags" class="skills" style="margin-top: 0"></div>
             <div id="lb-desc" style="color: var(--muted)">
               Short project description goes here.
             </div>
+            <a
+              id="lb-repo"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              class="btn secondary"
+              style="display: none; margin-top: 0.5rem; width: fit-content"
+            >
+              <i class="bx bxl-github"></i> View on GitHub
+            </a>
             <div class="lb-controls">
               <button class="icon-btn" id="prev" title="Previous (←)">◀</button>
               <button class="icon-btn" id="next" title="Next (→)">▶</button>
