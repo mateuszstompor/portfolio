@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/videos/
+
+Sitemap: https://arctic.codes/sitemap.xml
