@@ -27,6 +27,19 @@ npm install && node generate-sitemap.js
 - Never run formatting or linting commands (prettier, eslint, etc.). CI handles it.
 - Pull requests are merged using merge commits (not squash or rebase). Use `gh pr merge --merge` or the default merge strategy.
 
+## Workflow
+
+When implementing features or fixing bugs:
+
+1. **Create a new branch** for each feature or bug fix
+2. **Make changes** and commit with descriptive messages
+3. **Push to remote** and open a pull request
+4. **Wait for CI checks** to pass (prettier, link-check)
+5. **Merge the PR** using merge commit strategy once checks pass
+6. **Delete the branch** after merging
+
+Claude Code should handle this workflow automatically - create branch, push, open PR, and merge once checks pass.
+
 ## Architecture
 
 **Single-page app** — `index.html` (all markup), `assets/css/styles.css` (all styles), `assets/js/script.js` (all behavior).
