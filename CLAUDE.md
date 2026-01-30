@@ -25,6 +25,7 @@ npm install && node generate-sitemap.js
 ## Rules
 
 - Never run formatting or linting commands (prettier, eslint, etc.). CI handles it.
+- Pull requests are merged using merge commits (not squash or rebase). Use `gh pr merge --merge` or the default merge strategy.
 
 ## Architecture
 
