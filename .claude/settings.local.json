@@ -5,7 +5,11 @@
       "mcp__github__get_me",
       "mcp__github__search_repositories",
       "WebFetch(domain:mateuszstompor.github.io)",
-      "mcp__github__get_file_contents"
+      "mcp__github__get_file_contents",
+      "WebFetch(domain:github.com)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)"
     ]
   }
 }

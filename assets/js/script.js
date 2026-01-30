@@ -255,4 +255,114 @@
   sections.forEach((s) => {
     if (s.target) spyObserver.observe(s.target);
   });
+
+  /* -------- Konami Code Easter Egg -------- */
+  const konamiSequence = [
+    "ArrowUp",
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowLeft",
+    "ArrowRight",
+    "b",
+    "a",
+  ];
+  let konamiIndex = 0;
+  window.addEventListener("keydown", (e) => {
+    if (e.key === konamiSequence[konamiIndex]) {
+      konamiIndex++;
+      if (konamiIndex === konamiSequence.length) {
+        konamiIndex = 0;
+        document.body.classList.add("konami");
+        setTimeout(() => document.body.classList.remove("konami"), 5000);
+      }
+    } else {
+      konamiIndex = e.key === konamiSequence[0] ? 1 : 0;
+    }
+  });
+
+  /* -------- Hover Tilt on Project Tiles -------- */
+  document.querySelectorAll(".tile").forEach((tile) => {
+    tile.addEventListener("mouseenter", () => {
+      tile.style.transition = "transform 0.15s ease-out";
+    });
+    tile.addEventListener("mousemove", (e) => {
+      const rect = tile.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      tile.style.transition = "none";
+      tile.style.transform = `perspective(600px) rotateX(${-y * 12}deg) rotateY(${x * 12}deg) translateY(-4px) scale(1.02)`;
+    });
+    tile.addEventListener("mouseleave", () => {
+      tile.style.transition = "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)";
+      tile.style.transform = "none";
+    });
+  });
+
+  /* -------- Text Scramble on Section Headings -------- */
+  const scrambleChars = "!@#$%^&*()_+-=[]{}|;:,./<>?";
+  const scrambleObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          scrambleObserver.unobserve(entry.target);
+          const el = entry.target;
+          const original = el.textContent;
+          let iteration = 0;
+          const totalIterations = 14;
+          function scrambleFrame() {
+            el.textContent = original
+              .split("")
+              .map((ch, i) => {
+                if (i < (iteration / totalIterations) * original.length)
+                  return ch;
+                return scrambleChars[
+                  Math.floor(Math.random() * scrambleChars.length)
+                ];
+              })
+              .join("");
+            iteration++;
+            if (iteration <= totalIterations) {
+              setTimeout(scrambleFrame, 30);
+            } else {
+              el.textContent = original;
+            }
+          }
+          scrambleFrame();
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+  document
+    .querySelectorAll("h2.reveal")
+    .forEach((el) => scrambleObserver.observe(el));
+
+  /* -------- Interactive Skill Tags -------- */
+  document.querySelectorAll(".skill").forEach((tag) => {
+    tag.addEventListener("click", () => {
+      tag.classList.remove("pulse");
+      void tag.offsetWidth;
+      tag.classList.add("pulse");
+      tag.addEventListener(
+        "animationend",
+        () => tag.classList.remove("pulse"),
+        { once: true },
+      );
+    });
+  });
+
+  /* -------- ASCII Art in Console -------- */
+  console.log(
+    "%c" +
+      "    _    ____   ____ _____ ___ ____\n" +
+      "   / \\  |  _ \\ / ___|_   _|_ _/ ___|\n" +
+      "  / _ \\ | |_) | |     | |  | | |    \n" +
+      " / ___ \\|  _ <| |___  | |  | | |___ \n" +
+      "/_/   \\_\\_| \\_\\\\____| |_| |___\\____|\n\n" +
+      "  arctic.codes — built from scratch\n",
+    "color: #5eead4; font-size: 12px; font-family: monospace;",
+  );
 })();
