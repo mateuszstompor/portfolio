@@ -51,7 +51,15 @@ body {
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.4;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+.brand {
+  font-family: "Space Grotesk", Inter, system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }
 
 /* Header */
@@ -98,7 +106,8 @@ nav {
 nav a {
   color: var(--muted);
   text-decoration: none;
-  font-weight: 600;
+  font-family: "Space Grotesk", Inter, system-ui, sans-serif;
+  font-weight: 500;
   padding: 0.4rem 0.6rem;
   border-radius: 6px;
   transition:
@@ -107,7 +116,7 @@ nav a {
 }
 nav a:hover {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.08);
 }
 nav a.active {
   color: var(--accent);
@@ -202,7 +211,8 @@ nav a.active {
   margin-top: 0.8rem;
 }
 .skill {
-  font-size: 0.85rem;
+  font-family: "SF Mono", "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.8rem;
   padding: 0.35rem 0.6rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.03);
@@ -303,21 +313,27 @@ nav a.active {
   transition:
     filter 0.4s ease,
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: saturate(20%) brightness(80%);
+  filter: saturate(45%) brightness(85%);
 }
 .tile:hover {
-  transform: translateY(-6px) scale(1.02);
   box-shadow:
     0 14px 40px rgba(2, 6, 23, 0.6),
     0 0 20px rgba(94, 234, 212, 0.08);
   border-color: rgba(94, 234, 212, 0.15);
+}
+@media (hover: none) {
+  .tile:hover {
+    transform: translateY(-6px) scale(1.02);
+  }
+  .tile:hover img {
+    transform: scale(1.05);
+  }
 }
 .tile:hover::after {
   opacity: 1;
 }
 .tile:hover img {
   filter: saturate(100%) brightness(100%);
-  transform: scale(1.05);
 }
 
 .tile .meta {
@@ -426,6 +442,20 @@ body.lb-open header {
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.03);
   cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.tile:focus-visible,
+.icon-btn:focus-visible,
+.btn:focus-visible,
+nav a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* Contact */
@@ -448,7 +478,9 @@ form {
 }
 label {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--muted);
   margin-bottom: 0.35rem;
 }
@@ -589,7 +621,8 @@ footer {
   padding: 2.5rem 1rem 2rem;
   color: var(--muted);
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   background: rgba(0, 0, 0, 0.15);
 }
@@ -667,6 +700,11 @@ footer {
   align-items: center;
   gap: 1rem;
 }
+.experience-header strong {
+  font-family: "Space Grotesk", Inter, system-ui, sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
 .experience-date {
   color: var(--muted);
   font-size: 0.85rem;
@@ -710,8 +748,23 @@ footer {
   .parallax {
     height: 55vh;
   }
+  .lightbox {
+    align-items: flex-start;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .lb-inner {
+    flex-direction: column;
+    max-height: none;
+  }
   .lb-side {
-    display: none;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    padding: 0 1rem 1rem;
+  }
+  .lb-img img {
+    max-height: 50vh;
   }
 }
 @media (max-width: 640px) {
@@ -817,6 +870,91 @@ footer {
 }
 
 /* Respect reduced motion */
+/* Konami Easter Egg — retro terminal theme */
+.konami {
+  background: #000 !important;
+  color: #00ff41 !important;
+  font-family: "Courier New", monospace !important;
+}
+.konami * {
+  color: inherit !important;
+  font-family: inherit !important;
+  border-color: #00ff41 !important;
+}
+.konami::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 65, 0.03) 0px,
+    rgba(0, 255, 65, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* Custom cursor on hero */
+.parallax {
+  cursor: crosshair;
+}
+
+/* Hover tilt on project tiles */
+.tile {
+  will-change: transform;
+}
+
+/* Skill tag ripple + pulse */
+.skill {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.skill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle,
+    rgba(249, 115, 22, 0.4) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  pointer-events: none;
+}
+.skill:hover::after {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+@keyframes skillPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(249, 115, 22, 0);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(249, 115, 22, 0);
+  }
+}
+.skill.pulse {
+  animation: skillPulse 0.4s ease;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal-child {
