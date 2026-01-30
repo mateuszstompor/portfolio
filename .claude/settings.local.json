@@ -9,7 +9,13 @@
       "WebFetch(domain:github.com)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push)"
+      "Bash(git push)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "mcp__github__create_pull_request",
+      "Bash(gh pr create:*)",
+      "Bash(brew install:*)",
+      "Bash(gh auth:*)"
     ]
   }
 }
