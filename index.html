@@ -335,23 +335,18 @@
             />
             <div class="meta">P0rc3lain</div>
             <div class="description" style="display: none">
-              Engine is a 3D game engine developed entirely in Swift, leveraging
-              Apple's native technologies. Designed as a platform for
-              experimentation and learning, it serves as the foundation for a
-              chess game that demonstrates the engine's capabilities. The
-              project emphasizes modularity and scalability, allowing for easy
-              extension and adaptation to various game development needs. The
-              engine's architecture is built to support the creation of
-              small-scale games, providing essential features such as scene
-              management, rendering, and user input handling. The chess game,
-              built atop this engine, showcases its functionality by
-              implementing a full set of moves, including en passant, pawn
-              promotion, and castling. User interactions are facilitated through
-              mouse click detection, with keyboard-triggered camera movement
-              enhancing the gameplay experience. This project reflects a
-              commitment to understanding and applying core game development
-              principles, offering a practical example of a custom-built engine
-              in action.
+              A fully-featured 3D game engine built from scratch in pure Swift
+              using Metal 2. Implements both forward and deferred rendering
+              pipelines with physically-based rendering (PBR), shadow mapping
+              with PCF for point, spot, and directional lights, skeletal
+              animation, and post-processing effects including bloom, motion
+              blur, and vignette. Features a node-based scene graph, USDZ model
+              loading, normal mapping, soft shadow ambient occlusion, and
+              particle systems. The engine powers a complete chess game with
+              mouse picking, camera controls, and full rule implementation
+              (castling, en passant, promotion). Designed as a learning platform
+              for exploring modern rendering techniques and engine architecture
+              on Apple platforms.
             </div>
           </div>
 
@@ -370,13 +365,16 @@
             />
             <div class="meta">Flappy Bird Clone</div>
             <div class="description" style="display: none">
-              A faithful remake of the classic “flap the bird through the pipes”
-              game. Built in Python 3.8 with Pygame 2.0.1, the project
-              implements the original game mechanics—mouse and keyboard
-              controls, bird collisions with obstacles—and ships under the MIT
-              license. Designed as a programming exercise, it retains the charm
-              and frustration factor of the original while remaining fully
-              open-source.
+              A pixel-perfect recreation of the viral mobile game built as a
+              Python programming exercise. Implements the core 'flap through
+              pipes' mechanics using Pygame 2.0.1, with both mouse and keyboard
+              controls. Features sound effects, collision detection, customizable
+              bird and background colors via keyboard shortcuts, and smooth
+              gameplay animations. The project demonstrates fundamental game
+              development concepts including game loops, sprite management,
+              physics simulation, and input handling. Open-sourced under MIT
+              license, serving as both a nostalgic tribute and a practical
+              example of 2D game development in Python.
             </div>
           </div>
 
@@ -395,8 +393,16 @@
             />
             <div class="meta">Chess</div>
             <div class="description" style="display: none">
-              A clone of widely-known logic game. The project showcases features
-              and abilities of a graphics engine that I've developed.
+              A complete chess implementation built on top of a custom 3D engine,
+              showcasing real-time rendering capabilities and game logic
+              integration. Features all standard chess moves including castling,
+              en passant, and pawn promotion. Implements mouse-based piece
+              picking using ray casting, keyboard-driven camera controls, and
+              smooth piece animations. The game demonstrates practical
+              application of 3D engine features: scene management, object
+              interaction, and real-time user input processing. Built in Swift
+              with Metal for rendering, serving as both a playable game and a
+              technical demonstration of custom engine capabilities.
             </div>
           </div>
 
@@ -415,25 +421,18 @@
             />
             <div class="meta">Mine - CPU-based path tracer</div>
             <div class="description" style="display: none">
-              mine is a physically-based CPU ray tracer implemented in C++ and
-              Objective-C++ as part of my exploration into light transport and
-              rendering theory. The project focuses on building a minimal but
-              robust framework for simulating realistic lighting through
-              multi-bounce ray tracing, indirect illumination, and
-              physically-based shading models. It supports multiple geometric
-              primitives such as spheres, planes, disks, and triangles, along
-              with bitmap textures and basic USDZ model loading. The renderer
-              includes soft shadows, glossy reflections, and several sampling
-              techniques to achieve smooth and realistic lighting.
-              Multithreading support allows efficient utilization of available
-              CPU cores, making the system capable of producing high-quality
-              images without relying on GPU acceleration. Though not intended as
-              a production renderer, mine served as a valuable experimental
-              platform for understanding BRDFs, Monte Carlo integration, and the
-              overall structure of modern rendering pipelines. This project
-              represents a key step in my journey toward advanced
-              physically-based rendering and later GPU-accelerated Metal
-              implementations.
+              A physically-based CPU ray tracer built in C++ and Objective-C++
+              to explore light transport theory and realistic rendering.
+              Simulates realistic lighting through multi-bounce ray tracing,
+              Monte Carlo integration, and physically-based BRDFs. Supports
+              multiple geometric primitives (spheres, planes, disks, triangles),
+              bitmap textures, and USDZ model loading. Implements soft shadows,
+              glossy reflections, and various sampling techniques for smooth,
+              artifact-free images. Leverages multithreading to efficiently
+              utilize CPU cores without GPU acceleration. While not
+              production-grade, this project served as a foundation for
+              understanding rendering fundamentals before transitioning to
+              GPU-accelerated Metal implementations.
             </div>
           </div>
 
@@ -452,15 +451,18 @@
             />
             <div class="meta">NGIN - #2 Graphics engine</div>
             <div class="description" style="display: none">
-              ngin is a custom 3D engine I built in modern C and C++ to explore
-              and demonstrate core rendering architecture across multiple
-              platforms including Windows, macOS, and iOS. Emphasizing OpenGL /
-              GLES support and modular engine design, it showcases capabilities
-              in scene management, shader abstraction, and cross-platform
-              graphics pipeline structure. While not a full commercial engine,
-              ngin stands as a proof of concept in low-level engine engineering,
-              reflecting my interest in graphics systems, multiplatform
-              rendering, and engine internals.
+              A cross-platform 3D rendering engine built in modern C and C++ to
+              demonstrate core graphics architecture across Windows, macOS, and
+              iOS. Features both forward and deferred rendering pipelines, shadow
+              mapping with PCF for directional and spot lights, HDR tone mapping,
+              Gaussian bloom, normal mapping, and frustum culling for performance
+              optimization. Supports multiple simultaneous light sources (point,
+              directional, spot) with physically-accurate attenuation. Implements
+              model loading via Assimp, multiple resolution support, and
+              post-processing effects including vignette. Designed as a
+              proof-of-concept for low-level engine engineering and multiplatform
+              OpenGL/GLES rendering, showcasing modular shader architecture and
+              scene management.
             </div>
           </div>
 
@@ -479,18 +481,18 @@
             />
             <div class="meta">MSEngine - #1 Graphics engine</div>
             <div class="description" style="display: none">
-              MSEngine is an experimental 3D graphics and game engine I
-              developed in Objective-C and Objective-C++ as a foundation for
-              learning real-time rendering and engine architecture. The project
-              provides a minimal yet functional framework for creating 3D
-              scenes, handling user input, and rendering objects with lighting
-              and texture support. The engine implements a basic rendering
-              pipeline with ambient, diffuse, and specular lighting, along with
-              transparency and texture mapping. It supports multiple light
-              sources, object loading, and standard transformation operations
-              such as translation, rotation, and scaling. Input can be driven
-              through touch and gyroscope controls, making it suitable for
-              interactive experiences on iOS devices.
+              An experimental iOS 3D graphics engine developed in Objective-C and
+              Objective-C++ as a foundation for learning real-time rendering on
+              mobile platforms. Implements a basic rendering pipeline with Phong
+              lighting model (ambient, diffuse, specular), texture mapping,
+              transparency support, and multiple light sources with distance-based
+              attenuation. Features touch-based object interaction and
+              gyroscope-driven camera controls for immersive mobile experiences.
+              Includes object loading, standard transformations (translation,
+              rotation, scaling), and material system integration. Built with
+              OpenGL ES, this early project represents the starting point of my
+              journey into 3D graphics programming and established core concepts
+              later applied in Metal-based engines.
             </div>
           </div>
         </div>
@@ -528,9 +530,18 @@
             />
             <div class="meta">Linked-List x86 ASM</div>
             <div class="description" style="display: none">
-              Well-known and a simple dynamic data structure. In contrary to
-              other available implementations this one is written in x86-64
-              assembly with a C-compatible interface.
+              A classic linked list data structure implemented entirely in x86-64
+              assembly language with a C-compatible interface. Demonstrates
+              low-level memory management, pointer manipulation, and calling
+              convention compliance at the instruction level. Provides standard
+              operations including insertion, deletion, iteration, and comparison
+              through an idiomatic C API. Features proper memory
+              allocation/deallocation, iterator pattern implementation, and full
+              test coverage via Google Test. Supports macOS and Linux 64-bit
+              platforms. This project bridges high-level data structure concepts
+              with bare-metal assembly programming, offering practical insight
+              into how compilers translate data structures into machine code and
+              manage memory at the lowest abstraction level.
             </div>
           </div>
 
@@ -549,10 +560,18 @@
             />
             <div class="meta">RHCE preparations</div>
             <div class="description" style="display: none">
-              A repository that has reached a broad audience. I created it while
-              preparing for an exam. It contains questions presented as
-              exercises, along with their corresponding answers. The repository
-              requires a specific environment, which I also developed.
+              A comprehensive exam preparation repository for the Red Hat
+              Certified Engineer (RHCE) EX294 certification focused on Ansible
+              automation. Contains practice exercises based on official Red Hat
+              study objectives, along with complete infrastructure provisioning
+              scripts for creating a realistic exam environment. Features
+              hands-on scenarios covering playbook development, role creation,
+              variable management, templating, and system automation tasks.
+              Includes five-node cluster setup (one controller, four managed
+              hosts) with pre-configured networking and authentication. This
+              repository has reached a broad audience in the DevOps community,
+              serving as a practical study guide that combines theoretical
+              knowledge with real-world automation scenarios.
             </div>
           </div>
         </div>
